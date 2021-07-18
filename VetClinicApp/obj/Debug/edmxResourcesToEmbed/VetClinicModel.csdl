@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBVetClinicaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBVetClinicaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Doctors" EntityType="DBVetClinicaModel.Doctor" />
+    <EntitySet Name="Owners" EntityType="DBVetClinicaModel.Owner" />
+    <EntitySet Name="Pets" EntityType="DBVetClinicaModel.Pet" />
+    <EntitySet Name="Services" EntityType="DBVetClinicaModel.Service" />
+    <EntitySet Name="TreatmentСase" EntityType="DBVetClinicaModel.TreatmentСase" />
+    <AssociationSet Name="FK_TreatmentСase_DoctorId" Association="DBVetClinicaModel.FK_TreatmentСase_DoctorId">
+      <End Role="Doctor" EntitySet="Doctors" />
+      <End Role="TreatmentСase" EntitySet="TreatmentСase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pet_Owner" Association="DBVetClinicaModel.FK_Pet_Owner">
+      <End Role="Owner" EntitySet="Owners" />
+      <End Role="Pet" EntitySet="Pets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentСase_PetId" Association="DBVetClinicaModel.FK_TreatmentСase_PetId">
+      <End Role="Pet" EntitySet="Pets" />
+      <End Role="TreatmentСase" EntitySet="TreatmentСase" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="Int32" Nullable="false" />
+    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Fathername" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="Doctor" ToRole="TreatmentСase" />
+  </EntityType>
+  <EntityType Name="Owner">
+    <Key>
+      <PropertyRef Name="OwnerId" />
+    </Key>
+    <Property Name="OwnerId" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Pets" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Owner" ToRole="Pet" />
+  </EntityType>
+  <EntityType Name="Pet">
+    <Key>
+      <PropertyRef Name="PetId" />
+    </Key>
+    <Property Name="PetId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Sex" Type="Int32" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Species" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="BreedType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Colour" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="OwnerID" Type="Int32" />
+    <NavigationProperty Name="Owner" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Pet" ToRole="Owner" />
+    <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="Pet" ToRole="TreatmentСase" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ServiceId" />
+    </Key>
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TreatmentСase">
+    <Key>
+      <PropertyRef Name="TreatmentСaseId" />
+    </Key>
+    <Property Name="TreatmentСaseId" Type="Int32" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="DoctorID" Type="Int32" Nullable="false" />
+    <Property Name="PetID" Type="Int32" Nullable="false" />
+    <Property Name="VisualInspection" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Anamnesis" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Diagnosis" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Cause" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Conclusion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Doctor" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="TreatmentСase" ToRole="Doctor" />
+    <NavigationProperty Name="Pet" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="TreatmentСase" ToRole="Pet" />
+  </EntityType>
+  <Association Name="FK_TreatmentСase_DoctorId">
+    <End Type="DBVetClinicaModel.Doctor" Role="Doctor" Multiplicity="1" />
+    <End Type="DBVetClinicaModel.TreatmentСase" Role="TreatmentСase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="TreatmentСase">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pet_Owner">
+    <End Type="DBVetClinicaModel.Owner" Role="Owner" Multiplicity="0..1" />
+    <End Type="DBVetClinicaModel.Pet" Role="Pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Owner">
+        <PropertyRef Name="OwnerId" />
+      </Principal>
+      <Dependent Role="Pet">
+        <PropertyRef Name="OwnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentСase_PetId">
+    <End Type="DBVetClinicaModel.Pet" Role="Pet" Multiplicity="1" />
+    <End Type="DBVetClinicaModel.TreatmentСase" Role="TreatmentСase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pet">
+        <PropertyRef Name="PetId" />
+      </Principal>
+      <Dependent Role="TreatmentСase">
+        <PropertyRef Name="PetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
