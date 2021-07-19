@@ -79,7 +79,7 @@ namespace VetClinicApp
             this.ownerBindingNavigator.MovePreviousItem = null;
             this.ownerBindingNavigator.Name = "ownerBindingNavigator";
             this.ownerBindingNavigator.PositionItem = null;
-            this.ownerBindingNavigator.Size = new System.Drawing.Size(1152, 38);
+            this.ownerBindingNavigator.Size = new System.Drawing.Size(1152, 33);
             this.ownerBindingNavigator.TabIndex = 0;
             this.ownerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -89,7 +89,7 @@ namespace VetClinicApp
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorDeleteItem
@@ -142,9 +142,9 @@ namespace VetClinicApp
             this.lastNameToolStripLabel,
             this.lastNameToolStripTextBox,
             this.searchOwnerToolStripButton});
-            this.searchOwnerToolStrip.Location = new System.Drawing.Point(0, 38);
+            this.searchOwnerToolStrip.Location = new System.Drawing.Point(0, 33);
             this.searchOwnerToolStrip.Name = "searchOwnerToolStrip";
-            this.searchOwnerToolStrip.Size = new System.Drawing.Size(1152, 38);
+            this.searchOwnerToolStrip.Size = new System.Drawing.Size(1152, 34);
             this.searchOwnerToolStrip.TabIndex = 2;
             this.searchOwnerToolStrip.Text = "searchOwnerToolStrip";
             // 
