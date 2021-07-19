@@ -12,21 +12,41 @@ namespace VetClinicApp
 {
     public partial class MainFormVet : Form
     {
+
         public MainFormVet()
         {
             InitializeComponent();
-           // this.button1.Click += button1_Click;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+  
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    PetForm newForm = new PetForm(this);
+        //    newForm.Show();
+        //}
+
+
+        private void PetMenuItem_Click(object sender, EventArgs e)
         {
-            PetForm newForm = new PetForm(this);
-            newForm.Show();
+            PetForm newMDIChild = new PetForm();
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
         }
 
-        private void MainFormVet_Load(object sender, EventArgs e)
+        private void ProgramMenuItem_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("О программе");
+        }
 
+        private void OwnerMenuItem_Click(object sender, EventArgs e)
+        {
+            OwnerForm newMDIChild = new OwnerForm();
+            // Set the Parent Form of the Child window.
+            newMDIChild.MdiParent = this;
+            // Display the new form.
+            newMDIChild.Show();
         }
     }
 }

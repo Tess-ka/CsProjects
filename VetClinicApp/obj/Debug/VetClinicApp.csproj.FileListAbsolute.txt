@@ -30,3 +30,4 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetCl
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.csproj.CopyComplete
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.exe
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.pdb
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.OwnerForm.resources

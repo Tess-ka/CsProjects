@@ -12,7 +12,7 @@ namespace VetClinicApp
 {
     public partial class PetForm : Form
     {
-        public PetForm(MainFormVet f)
+        public PetForm()
         {
             InitializeComponent();
         }
@@ -45,9 +45,6 @@ namespace VetClinicApp
 
         }
 
-        private void petBindingNavigator_RefreshItems(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }
