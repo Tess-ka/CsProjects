@@ -54,7 +54,6 @@ namespace VetClinicApp
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuItem,
@@ -65,7 +64,7 @@ namespace VetClinicApp
             this.RefMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1332, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1332, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,13 +73,13 @@ namespace VetClinicApp
             this.FileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CloseMenuItem});
             this.FileMenuItem.Name = "FileMenuItem";
-            this.FileMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.FileMenuItem.Size = new System.Drawing.Size(48, 20);
             this.FileMenuItem.Text = "Файл";
             // 
             // CloseMenuItem
             // 
             this.CloseMenuItem.Name = "CloseMenuItem";
-            this.CloseMenuItem.Size = new System.Drawing.Size(166, 34);
+            this.CloseMenuItem.Size = new System.Drawing.Size(109, 22);
             this.CloseMenuItem.Text = "Выход";
             // 
             // RegistrationMenuItem
@@ -89,19 +88,20 @@ namespace VetClinicApp
             this.PetSearchMenuItem,
             this.ReferenceMenuItem});
             this.RegistrationMenuItem.Name = "RegistrationMenuItem";
-            this.RegistrationMenuItem.Size = new System.Drawing.Size(135, 29);
+            this.RegistrationMenuItem.Size = new System.Drawing.Size(92, 20);
             this.RegistrationMenuItem.Text = "Регистратура";
             // 
             // PetSearchMenuItem
             // 
             this.PetSearchMenuItem.Name = "PetSearchMenuItem";
-            this.PetSearchMenuItem.Size = new System.Drawing.Size(248, 34);
+            this.PetSearchMenuItem.Size = new System.Drawing.Size(180, 22);
             this.PetSearchMenuItem.Text = "Поиск питомца";
+            this.PetSearchMenuItem.Click += new System.EventHandler(this.PetSearchMenuItem_Click);
             // 
             // ReferenceMenuItem
             // 
             this.ReferenceMenuItem.Name = "ReferenceMenuItem";
-            this.ReferenceMenuItem.Size = new System.Drawing.Size(248, 34);
+            this.ReferenceMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ReferenceMenuItem.Text = "Выдача справок";
             // 
             // DirectoryMenuItem
@@ -113,44 +113,45 @@ namespace VetClinicApp
             this.ServicesMenuItem,
             this.VaccinationsMenuItem});
             this.DirectoryMenuItem.Name = "DirectoryMenuItem";
-            this.DirectoryMenuItem.Size = new System.Drawing.Size(139, 29);
+            this.DirectoryMenuItem.Size = new System.Drawing.Size(94, 20);
             this.DirectoryMenuItem.Text = "Справочники";
             // 
             // PetMenuItem
             // 
             this.PetMenuItem.Name = "PetMenuItem";
-            this.PetMenuItem.Size = new System.Drawing.Size(203, 34);
+            this.PetMenuItem.Size = new System.Drawing.Size(180, 22);
             this.PetMenuItem.Text = "Питомцы";
             // 
             // OwnerMenuItem
             // 
             this.OwnerMenuItem.Name = "OwnerMenuItem";
-            this.OwnerMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.OwnerMenuItem.Size = new System.Drawing.Size(180, 22);
             this.OwnerMenuItem.Text = "Владельцы";
             this.OwnerMenuItem.Click += new System.EventHandler(this.OwnerMenuItem_Click);
             // 
             // DoctorMenuItem
             // 
             this.DoctorMenuItem.Name = "DoctorMenuItem";
-            this.DoctorMenuItem.Size = new System.Drawing.Size(203, 34);
+            this.DoctorMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DoctorMenuItem.Text = "Доктора";
+            this.DoctorMenuItem.Click += new System.EventHandler(this.DoctorMenuItem_Click);
             // 
             // ServicesMenuItem
             // 
             this.ServicesMenuItem.Name = "ServicesMenuItem";
-            this.ServicesMenuItem.Size = new System.Drawing.Size(203, 34);
+            this.ServicesMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ServicesMenuItem.Text = "Услуги";
             // 
             // VaccinationsMenuItem
             // 
             this.VaccinationsMenuItem.Name = "VaccinationsMenuItem";
-            this.VaccinationsMenuItem.Size = new System.Drawing.Size(203, 34);
+            this.VaccinationsMenuItem.Size = new System.Drawing.Size(180, 22);
             this.VaccinationsMenuItem.Text = "Прививки";
             // 
             // SettingsMenuItem
             // 
             this.SettingsMenuItem.Name = "SettingsMenuItem";
-            this.SettingsMenuItem.Size = new System.Drawing.Size(116, 29);
+            this.SettingsMenuItem.Size = new System.Drawing.Size(79, 20);
             this.SettingsMenuItem.Text = "Настройки";
             // 
             // WindowMenuItem
@@ -158,13 +159,13 @@ namespace VetClinicApp
             this.WindowMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ClosedWinMenuItem});
             this.WindowMenuItem.Name = "WindowMenuItem";
-            this.WindowMenuItem.Size = new System.Drawing.Size(72, 29);
+            this.WindowMenuItem.Size = new System.Drawing.Size(48, 20);
             this.WindowMenuItem.Text = "Окно";
             // 
             // ClosedWinMenuItem
             // 
             this.ClosedWinMenuItem.Name = "ClosedWinMenuItem";
-            this.ClosedWinMenuItem.Size = new System.Drawing.Size(228, 34);
+            this.ClosedWinMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ClosedWinMenuItem.Text = "Закрыть окно";
             // 
             // RefMenuItem
@@ -172,13 +173,13 @@ namespace VetClinicApp
             this.RefMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ProgramMenuItem});
             this.RefMenuItem.Name = "RefMenuItem";
-            this.RefMenuItem.Size = new System.Drawing.Size(97, 29);
+            this.RefMenuItem.Size = new System.Drawing.Size(65, 20);
             this.RefMenuItem.Text = "Справка";
             // 
             // ProgramMenuItem
             // 
             this.ProgramMenuItem.Name = "ProgramMenuItem";
-            this.ProgramMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.ProgramMenuItem.Size = new System.Drawing.Size(149, 22);
             this.ProgramMenuItem.Text = "О программе";
             this.ProgramMenuItem.Click += new System.EventHandler(this.ProgramMenuItem_Click);
             // 
@@ -187,23 +188,23 @@ namespace VetClinicApp
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip.Location = new System.Drawing.Point(0, 771);
+            this.statusStrip.Location = new System.Drawing.Point(0, 727);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1332, 32);
+            this.statusStrip.Size = new System.Drawing.Size(1332, 22);
             this.statusStrip.TabIndex = 7;
             this.statusStrip.Text = "statusStrip";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(45, 25);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(30, 17);
             this.toolStripStatusLabel1.Text = "Ку :)";
             // 
             // MainFormVet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 803);
+            this.ClientSize = new System.Drawing.Size(1332, 749);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

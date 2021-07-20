@@ -79,6 +79,12 @@
     <Compile Include="Doctor.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorForm.Designer.cs">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFormVet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,12 @@
     <Compile Include="Pet.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PetCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetCardForm.Designer.cs">
+      <DependentUpon>PetCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchPetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchPetForm.Designer.cs">
+      <DependentUpon>SearchPetForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
@@ -126,11 +144,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VetClinicModel.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DoctorForm.resx">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFormVet.resx">
       <DependentUpon>MainFormVet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OwnerForm.resx">
       <DependentUpon>OwnerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PetCardForm.resx">
+      <DependentUpon>PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PetForm.resx">
       <DependentUpon>PetForm.cs</DependentUpon>
@@ -144,6 +168,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SearchPetForm.resx">
+      <DependentUpon>SearchPetForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DBVetClinicaDataSet.xsc">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </None>
