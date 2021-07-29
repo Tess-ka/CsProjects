@@ -1,0 +1,10 @@
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\VetClinicServerApp.exe.config
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\VetClinicServerApp.exe
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\VetClinicServerApp.pdb
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.csprojAssemblyReference.cache
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.Properties.Resources.resources
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.csproj.GenerateResource.cache
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.csproj.CoreCompileInputs.cache
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.exe
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.pdb
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.ConnectForm.resources
