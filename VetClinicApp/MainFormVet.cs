@@ -31,14 +31,14 @@ namespace VetClinicApp
             MessageBox.Show("What? O_o");
         }
 
-        private void PetMenuItem_Click(object sender, EventArgs e)
-        {
-            PetForm newMDIChild = new PetForm();
-            // Set the Parent Form of the Child window.
-            newMDIChild.MdiParent = this;
-            // Display the new form.
-            newMDIChild.Show();
-        }
+        //private void PetMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    PetForm newMDIChild = new PetForm();
+        //    // Set the Parent Form of the Child window.
+        //    newMDIChild.MdiParent = this;
+        //    // Display the new form.
+        //    newMDIChild.Show();
+        //}
 
         private void OwnerMenuItem_Click(object sender, EventArgs e)
         {

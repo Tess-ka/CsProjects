@@ -49,7 +49,13 @@ namespace VetClinicApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_cardpet_open_Click(object sender, EventArgs e)
+        {
+            PetCardForm newForm = new PetCardForm(this);
+            newForm.Show();
+        }
+
+        private void button_cardpet_open_new_Click(object sender, EventArgs e)
         {
             PetCardForm newForm = new PetCardForm(this);
             newForm.Show();

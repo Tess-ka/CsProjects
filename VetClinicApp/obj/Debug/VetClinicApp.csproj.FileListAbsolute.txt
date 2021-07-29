@@ -23,7 +23,6 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\Entit
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.csprojAssemblyReference.cache
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.MainFormVet.resources
-C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.PetForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.Properties.Resources.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.csproj.GenerateResource.cache
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.csproj.CoreCompileInputs.cache

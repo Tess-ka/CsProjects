@@ -71,6 +71,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBVetClinicaDataSet.cs">
+      <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBVetClinicaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,12 +111,6 @@
     </Compile>
     <Compile Include="PetCardForm.Designer.cs">
       <DependentUpon>PetCardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PetForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PetForm.Designer.cs">
-      <DependentUpon>PetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,9 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PetCardForm.resx">
       <DependentUpon>PetCardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PetForm.resx">
-      <DependentUpon>PetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
