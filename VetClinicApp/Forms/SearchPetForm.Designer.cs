@@ -36,7 +36,6 @@ namespace VetClinicApp
             System.Windows.Forms.Label breedTypeLabel;
             System.Windows.Forms.Label lastNameLabel;
             System.Windows.Forms.Label telephoneLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchPetForm));
             this.dBVetClinicaDataSet = new VetClinicApp.DBVetClinicaDataSet();
             this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -46,12 +45,6 @@ namespace VetClinicApp
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.speciesTextBox = new System.Windows.Forms.TextBox();
             this.breedTypeTextBox = new System.Windows.Forms.TextBox();
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.petIdToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.petIdToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.nameToolStripLabel = new System.Windows.Forms.ToolStripLabel();
-            this.nameToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.telephoneTextBox = new System.Windows.Forms.TextBox();
@@ -61,17 +54,6 @@ namespace VetClinicApp
             this.button_cardpet_open = new System.Windows.Forms.Button();
             this.button_cardpet_open_new = new System.Windows.Forms.Button();
             this.treatmentСaseTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TreatmentСaseTableAdapter();
-            this.treatmentСaseDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.treatmentСaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.treatmentСaseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.treatmentСaseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
@@ -80,7 +62,19 @@ namespace VetClinicApp
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_search_owner = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.petDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.txtSearchPet = new System.Windows.Forms.TextBox();
+            this.button_search_pet = new System.Windows.Forms.Button();
             petIdLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             speciesLabel = new System.Windows.Forms.Label();
@@ -89,11 +83,9 @@ namespace VetClinicApp
             telephoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
-            this.fillByToolStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).BeginInit();
@@ -101,6 +93,8 @@ namespace VetClinicApp
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // petIdLabel
@@ -217,52 +211,6 @@ namespace VetClinicApp
             this.breedTypeTextBox.Size = new System.Drawing.Size(166, 20);
             this.breedTypeTextBox.TabIndex = 12;
             // 
-            // fillByToolStrip
-            // 
-            this.fillByToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.petIdToolStripLabel,
-            this.petIdToolStripTextBox,
-            this.nameToolStripLabel,
-            this.nameToolStripTextBox,
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(3, 3);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.fillByToolStrip.Size = new System.Drawing.Size(437, 25);
-            this.fillByToolStrip.TabIndex = 17;
-            this.fillByToolStrip.Text = "fillByToolStrip";
-            // 
-            // petIdToolStripLabel
-            // 
-            this.petIdToolStripLabel.Name = "petIdToolStripLabel";
-            this.petIdToolStripLabel.Size = new System.Drawing.Size(69, 22);
-            this.petIdToolStripLabel.Text = "ID питомца";
-            // 
-            // petIdToolStripTextBox
-            // 
-            this.petIdToolStripTextBox.Name = "petIdToolStripTextBox";
-            this.petIdToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // nameToolStripLabel
-            // 
-            this.nameToolStripLabel.Name = "nameToolStripLabel";
-            this.nameToolStripLabel.Size = new System.Drawing.Size(31, 22);
-            this.nameToolStripLabel.Text = "Имя";
-            // 
-            // nameToolStripTextBox
-            // 
-            this.nameToolStripTextBox.Name = "nameToolStripTextBox";
-            this.nameToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            // 
-            // fillByToolStripButton
-            // 
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(45, 22);
-            this.fillByToolStripButton.Text = "Найти";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(petIdLabel);
@@ -344,89 +292,6 @@ namespace VetClinicApp
             // 
             this.treatmentСaseTableAdapter.ClearBeforeFill = true;
             // 
-            // treatmentСaseDataGridView
-            // 
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.treatmentСaseDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.treatmentСaseDataGridView.AutoGenerateColumns = false;
-            this.treatmentСaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.treatmentСaseDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.treatmentСaseDataGridView.DataSource = this.treatmentСaseBindingSource;
-            this.treatmentСaseDataGridView.Location = new System.Drawing.Point(10, 235);
-            this.treatmentСaseDataGridView.Name = "treatmentСaseDataGridView";
-            this.treatmentСaseDataGridView.Size = new System.Drawing.Size(450, 182);
-            this.treatmentСaseDataGridView.TabIndex = 22;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TreatmentСaseId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TreatmentСaseId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Data";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Data";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Number";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Number";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DoctorID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DoctorID";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "PetID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "PetID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "VisualInspection";
-            this.dataGridViewTextBoxColumn6.HeaderText = "VisualInspection";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Anamnesis";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Anamnesis";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Diagnosis";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Diagnosis";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Cause";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Cause";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Conclusion";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Conclusion";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
             // treatmentСaseBindingSource
             // 
             this.treatmentСaseBindingSource.DataMember = "FK_TreatmentСase_PetId";
@@ -454,7 +319,9 @@ namespace VetClinicApp
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.fillByToolStrip);
+            this.tabPage1.Controls.Add(this.button_search_pet);
+            this.tabPage1.Controls.Add(this.txtSearchPet);
+            this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -467,7 +334,7 @@ namespace VetClinicApp
             // 
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Controls.Add(this.button_search_owner);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txtSearch);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -496,20 +363,115 @@ namespace VetClinicApp
             this.button_search_owner.UseVisualStyleBackColor = true;
             this.button_search_owner.Click += new System.EventHandler(this.button_search_owner_Click);
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(311, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtSearch.Location = new System.Drawing.Point(38, 7);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(311, 20);
+            this.txtSearch.TabIndex = 0;
+            // 
+            // petDataGridView
+            // 
+            this.petDataGridView.AutoGenerateColumns = false;
+            this.petDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.petDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.petDataGridView.DataSource = this.petBindingSource;
+            this.petDataGridView.Location = new System.Drawing.Point(9, 235);
+            this.petDataGridView.Name = "petDataGridView";
+            this.petDataGridView.Size = new System.Drawing.Size(451, 121);
+            this.petDataGridView.TabIndex = 23;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PetId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "PetId";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Sex";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Sex";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Birthday";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Birthday";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Species";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Species";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "BreedType";
+            this.dataGridViewTextBoxColumn6.HeaderText = "BreedType";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Colour";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Colour";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "OwnerID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "OwnerID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // txtSearchPet
+            // 
+            this.txtSearchPet.Location = new System.Drawing.Point(39, 6);
+            this.txtSearchPet.Name = "txtSearchPet";
+            this.txtSearchPet.Size = new System.Drawing.Size(311, 20);
+            this.txtSearchPet.TabIndex = 4;
+            // 
+            // button_search_pet
+            // 
+            this.button_search_pet.Location = new System.Drawing.Point(362, 3);
+            this.button_search_pet.Name = "button_search_pet";
+            this.button_search_pet.Size = new System.Drawing.Size(75, 26);
+            this.button_search_pet.TabIndex = 5;
+            this.button_search_pet.Text = "Найти";
+            this.button_search_pet.UseVisualStyleBackColor = true;
+            this.button_search_pet.Click += new System.EventHandler(this.button_search_pet_Click);
             // 
             // SearchPetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(468, 429);
+            this.Controls.Add(this.petDataGridView);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.treatmentСaseDataGridView);
             this.Controls.Add(this.button_cardpet_open_new);
             this.Controls.Add(this.button_cardpet_open);
             this.Controls.Add(this.groupBox2);
@@ -521,17 +483,14 @@ namespace VetClinicApp
             this.Name = "SearchPetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Форма поиска питомца";
-            this.Load += new System.EventHandler(this.SearchPetForm_Load);
+ //           this.Load += new System.EventHandler(this.SearchPetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
-            this.fillByToolStrip.ResumeLayout(false);
-            this.fillByToolStrip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).EndInit();
@@ -541,6 +500,8 @@ namespace VetClinicApp
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -555,12 +516,6 @@ namespace VetClinicApp
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox speciesTextBox;
         private System.Windows.Forms.TextBox breedTypeTextBox;
-        private System.Windows.Forms.ToolStrip fillByToolStrip;
-        private System.Windows.Forms.ToolStripLabel petIdToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox petIdToolStripTextBox;
-        private System.Windows.Forms.ToolStripLabel nameToolStripLabel;
-        private System.Windows.Forms.ToolStripTextBox nameToolStripTextBox;
-        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.BindingSource ownerBindingSource;
@@ -573,7 +528,13 @@ namespace VetClinicApp
         private DBVetClinicaDataSetTableAdapters.TreatmentСaseTableAdapter treatmentСaseTableAdapter;
         private System.Windows.Forms.BindingSource treatmentСaseBindingSource1;
         private System.Windows.Forms.BindingSource treatmentСaseBindingSource2;
-        private System.Windows.Forms.DataGridView treatmentСaseDataGridView;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button_search_owner;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridView petDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -582,13 +543,8 @@ namespace VetClinicApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button_search_owner;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button_search_pet;
+        private System.Windows.Forms.TextBox txtSearchPet;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

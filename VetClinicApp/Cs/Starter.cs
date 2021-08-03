@@ -11,7 +11,7 @@ namespace VetClinicApp
     class Starter
     {
         private const int port = 8088;
-        private const string server = "localhost";
+        private const string server = "127.0.0.1";
 
         public void Start()
         {

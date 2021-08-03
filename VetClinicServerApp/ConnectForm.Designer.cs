@@ -40,7 +40,6 @@ namespace VetClinicServerApp
             this.ConnectButton.TabIndex = 0;
             this.ConnectButton.Text = "Подключиться";
             this.ConnectButton.UseVisualStyleBackColor = true;
-            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
             // 
             // Form1
             // 

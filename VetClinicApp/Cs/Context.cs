@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Entity;
+
+namespace VetClinicApp
+{
+    class PetContext : DbContext
+    {
+        public PetContext()
+            : base("Dbconnection")
+        { }
+
+        public DbSet<Pet> Pets { get; set; }
+    }
+
+    class DoctorContext : DbContext
+    {
+        public DoctorContext()
+            : base("Dbconnection")
+        { }
+
+        public DbSet<Doctor> Doctors { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<DoctorContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
+    }
+
+    class ImagesContext : DbContext
+    {
+        public ImagesContext()
+            : base("Dbconnection")
+        { }
+
+        public DbSet<Image> Images { get; set; }
+    }
+}

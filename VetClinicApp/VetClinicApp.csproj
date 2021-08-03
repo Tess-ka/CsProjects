@@ -14,6 +14,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,8 +30,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cs\Context.cs" />
     <Compile Include="DBVetClinicaDataSet.cs">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </Compile>
@@ -84,6 +85,12 @@
     </Compile>
     <Compile Include="Doctor.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoctorCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoctorCardForm.Designer.cs">
+      <DependentUpon>DoctorCardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DoctorForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +103,9 @@
     </Compile>
     <Compile Include="Forms\MainFormVet.Designer.cs">
       <DependentUpon>MainFormVet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Owner.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
@@ -125,11 +135,14 @@
     <Compile Include="Service.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Starter.cs" />
+    <Compile Include="Cs\Starter.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>VetClinicModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TreatmentСase.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="VetClinicClient.cs" />
+    <Compile Include="Cs\VetClinicClient.cs" />
     <Compile Include="VetClinicModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -145,6 +158,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VetClinicModel.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\DoctorCardForm.resx">
+      <DependentUpon>DoctorCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DoctorForm.resx">
       <DependentUpon>DoctorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +185,7 @@
     <EmbeddedResource Include="Forms\SearchPetForm.resx">
       <DependentUpon>SearchPetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="DBVetClinicaDataSet.xsc">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </None>
@@ -180,7 +197,7 @@
     <None Include="DBVetClinicaDataSet.xss">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </None>
-    <None Include="packages.config" />
+    <None Include="Config\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -199,7 +216,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Config\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBVetClinica.mdf">

@@ -35,3 +35,4 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetCl
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.PetCardForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\EntityFramework.dll
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.DoctorCardForm.resources

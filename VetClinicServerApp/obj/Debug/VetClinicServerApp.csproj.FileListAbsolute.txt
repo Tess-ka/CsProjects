@@ -8,3 +8,8 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.exe
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.pdb
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.ConnectForm.resources
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\EntityFramework.dll
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\EntityFramework.xml
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicServerApp\obj\Debug\VetClinicServerApp.csproj.CopyComplete

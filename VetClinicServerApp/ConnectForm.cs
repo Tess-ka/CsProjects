@@ -24,17 +24,5 @@ namespace VetClinicServerApp
 
         }
 
-        static void Main(string[] args)
-        {
-            VetClinicServer starter = new VetClinicServer();
-            starter.ServerApp();
-
-        }
-        private void ConnectButton_Click(object sender, EventArgs e)   //Start server
-        {
-            VetClinicServer starter = new VetClinicServer();
-            starter.ServerApp();
-
-        }
     }
 }

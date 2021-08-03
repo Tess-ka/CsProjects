@@ -18,6 +18,8 @@
       <End Role="Pet" EntitySet="Pets" />
       <End Role="TreatmentСase" EntitySet="TreatmentСase" />
     </AssociationSet>
+    <EntitySet Name="Images" EntityType="DBVetClinicaModel.Image" />
+    <EntitySet Name="sysdiagrams" EntityType="DBVetClinicaModel.sysdiagram" />
   </EntityContainer>
   <EntityType Name="Doctor">
     <Key>
@@ -120,4 +122,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Images" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>
