@@ -40,12 +40,13 @@ namespace VetClinicApp
             System.Windows.Forms.Label breedTypeLabel;
             System.Windows.Forms.Label colourLabel;
             System.Windows.Forms.Label ownerIDLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetCardForm));
             this.petIdTextBox = new System.Windows.Forms.TextBox();
+            this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBVetClinicaDataSet = new VetClinicApp.DBVetClinicaDataSet();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBVetClinicaDataSet = new VetClinicApp.DBVetClinicaDataSet();
             this.petTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.PetTableAdapter();
             this.tableAdapterManager = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager();
             this.petIdTextBox1 = new System.Windows.Forms.TextBox();
@@ -66,10 +67,10 @@ namespace VetClinicApp
             breedTypeLabel = new System.Windows.Forms.Label();
             colourLabel = new System.Windows.Forms.Label();
             ownerIDLabel = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // petIdLabel
@@ -90,6 +91,78 @@ namespace VetClinicApp
             nameLabel.TabIndex = 3;
             nameLabel.Text = "Имя:";
             // 
+            // petIdLabel1
+            // 
+            petIdLabel1.AutoSize = true;
+            petIdLabel1.Location = new System.Drawing.Point(95, 219);
+            petIdLabel1.Name = "petIdLabel1";
+            petIdLabel1.Size = new System.Drawing.Size(38, 13);
+            petIdLabel1.TabIndex = 18;
+            petIdLabel1.Text = "Pet Id:";
+            // 
+            // nameLabel1
+            // 
+            nameLabel1.AutoSize = true;
+            nameLabel1.Location = new System.Drawing.Point(95, 245);
+            nameLabel1.Name = "nameLabel1";
+            nameLabel1.Size = new System.Drawing.Size(38, 13);
+            nameLabel1.TabIndex = 20;
+            nameLabel1.Text = "Name:";
+            // 
+            // sexLabel
+            // 
+            sexLabel.AutoSize = true;
+            sexLabel.Location = new System.Drawing.Point(95, 271);
+            sexLabel.Name = "sexLabel";
+            sexLabel.Size = new System.Drawing.Size(28, 13);
+            sexLabel.TabIndex = 22;
+            sexLabel.Text = "Sex:";
+            // 
+            // birthdayLabel
+            // 
+            birthdayLabel.AutoSize = true;
+            birthdayLabel.Location = new System.Drawing.Point(95, 297);
+            birthdayLabel.Name = "birthdayLabel";
+            birthdayLabel.Size = new System.Drawing.Size(48, 13);
+            birthdayLabel.TabIndex = 24;
+            birthdayLabel.Text = "Birthday:";
+            // 
+            // speciesLabel
+            // 
+            speciesLabel.AutoSize = true;
+            speciesLabel.Location = new System.Drawing.Point(95, 323);
+            speciesLabel.Name = "speciesLabel";
+            speciesLabel.Size = new System.Drawing.Size(48, 13);
+            speciesLabel.TabIndex = 26;
+            speciesLabel.Text = "Species:";
+            // 
+            // breedTypeLabel
+            // 
+            breedTypeLabel.AutoSize = true;
+            breedTypeLabel.Location = new System.Drawing.Point(95, 349);
+            breedTypeLabel.Name = "breedTypeLabel";
+            breedTypeLabel.Size = new System.Drawing.Size(65, 13);
+            breedTypeLabel.TabIndex = 28;
+            breedTypeLabel.Text = "Breed Type:";
+            // 
+            // colourLabel
+            // 
+            colourLabel.AutoSize = true;
+            colourLabel.Location = new System.Drawing.Point(95, 375);
+            colourLabel.Name = "colourLabel";
+            colourLabel.Size = new System.Drawing.Size(40, 13);
+            colourLabel.TabIndex = 30;
+            colourLabel.Text = "Colour:";
+            // 
+            // ownerIDLabel
+            // 
+            ownerIDLabel.AutoSize = true;
+            ownerIDLabel.Location = new System.Drawing.Point(95, 401);
+            ownerIDLabel.Name = "ownerIDLabel";
+            ownerIDLabel.Size = new System.Drawing.Size(55, 13);
+            ownerIDLabel.TabIndex = 32;
+            ownerIDLabel.Text = "Owner ID:";
+            // 
             // petIdTextBox
             // 
             this.petIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "PetId", true));
@@ -97,6 +170,16 @@ namespace VetClinicApp
             this.petIdTextBox.Name = "petIdTextBox";
             this.petIdTextBox.Size = new System.Drawing.Size(105, 20);
             this.petIdTextBox.TabIndex = 2;
+            // 
+            // petBindingSource
+            // 
+            this.petBindingSource.DataMember = "Pet";
+            this.petBindingSource.DataSource = this.dBVetClinicaDataSet;
+            // 
+            // dBVetClinicaDataSet
+            // 
+            this.dBVetClinicaDataSet.DataSetName = "DBVetClinicaDataSet";
+            this.dBVetClinicaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nameTextBox
             // 
@@ -127,16 +210,6 @@ namespace VetClinicApp
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
-            // petBindingSource
-            // 
-            this.petBindingSource.DataMember = "Pet";
-            this.petBindingSource.DataSource = this.dBVetClinicaDataSet;
-            // 
-            // dBVetClinicaDataSet
-            // 
-            this.dBVetClinicaDataSet.DataSetName = "DBVetClinicaDataSet";
-            this.dBVetClinicaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // petTableAdapter
             // 
             this.petTableAdapter.ClearBeforeFill = true;
@@ -145,20 +218,12 @@ namespace VetClinicApp
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.DoctorTableAdapter = null;
+            this.tableAdapterManager.ImagesTableAdapter = null;
             this.tableAdapterManager.OwnerTableAdapter = null;
             this.tableAdapterManager.PetTableAdapter = this.petTableAdapter;
             this.tableAdapterManager.ServiceTableAdapter = null;
             this.tableAdapterManager.TreatmentСaseTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // petIdLabel1
-            // 
-            petIdLabel1.AutoSize = true;
-            petIdLabel1.Location = new System.Drawing.Point(95, 219);
-            petIdLabel1.Name = "petIdLabel1";
-            petIdLabel1.Size = new System.Drawing.Size(38, 13);
-            petIdLabel1.TabIndex = 18;
-            petIdLabel1.Text = "Pet Id:";
             // 
             // petIdTextBox1
             // 
@@ -168,15 +233,6 @@ namespace VetClinicApp
             this.petIdTextBox1.Size = new System.Drawing.Size(100, 20);
             this.petIdTextBox1.TabIndex = 19;
             // 
-            // nameLabel1
-            // 
-            nameLabel1.AutoSize = true;
-            nameLabel1.Location = new System.Drawing.Point(95, 245);
-            nameLabel1.Name = "nameLabel1";
-            nameLabel1.Size = new System.Drawing.Size(38, 13);
-            nameLabel1.TabIndex = 20;
-            nameLabel1.Text = "Name:";
-            // 
             // nameTextBox1
             // 
             this.nameTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Name", true));
@@ -184,15 +240,6 @@ namespace VetClinicApp
             this.nameTextBox1.Name = "nameTextBox1";
             this.nameTextBox1.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox1.TabIndex = 21;
-            // 
-            // sexLabel
-            // 
-            sexLabel.AutoSize = true;
-            sexLabel.Location = new System.Drawing.Point(95, 271);
-            sexLabel.Name = "sexLabel";
-            sexLabel.Size = new System.Drawing.Size(28, 13);
-            sexLabel.TabIndex = 22;
-            sexLabel.Text = "Sex:";
             // 
             // sexTextBox
             // 
@@ -202,15 +249,6 @@ namespace VetClinicApp
             this.sexTextBox.Size = new System.Drawing.Size(100, 20);
             this.sexTextBox.TabIndex = 23;
             // 
-            // birthdayLabel
-            // 
-            birthdayLabel.AutoSize = true;
-            birthdayLabel.Location = new System.Drawing.Point(95, 297);
-            birthdayLabel.Name = "birthdayLabel";
-            birthdayLabel.Size = new System.Drawing.Size(48, 13);
-            birthdayLabel.TabIndex = 24;
-            birthdayLabel.Text = "Birthday:";
-            // 
             // birthdayTextBox
             // 
             this.birthdayTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Birthday", true));
@@ -218,15 +256,6 @@ namespace VetClinicApp
             this.birthdayTextBox.Name = "birthdayTextBox";
             this.birthdayTextBox.Size = new System.Drawing.Size(100, 20);
             this.birthdayTextBox.TabIndex = 25;
-            // 
-            // speciesLabel
-            // 
-            speciesLabel.AutoSize = true;
-            speciesLabel.Location = new System.Drawing.Point(95, 323);
-            speciesLabel.Name = "speciesLabel";
-            speciesLabel.Size = new System.Drawing.Size(48, 13);
-            speciesLabel.TabIndex = 26;
-            speciesLabel.Text = "Species:";
             // 
             // speciesTextBox
             // 
@@ -236,15 +265,6 @@ namespace VetClinicApp
             this.speciesTextBox.Size = new System.Drawing.Size(100, 20);
             this.speciesTextBox.TabIndex = 27;
             // 
-            // breedTypeLabel
-            // 
-            breedTypeLabel.AutoSize = true;
-            breedTypeLabel.Location = new System.Drawing.Point(95, 349);
-            breedTypeLabel.Name = "breedTypeLabel";
-            breedTypeLabel.Size = new System.Drawing.Size(65, 13);
-            breedTypeLabel.TabIndex = 28;
-            breedTypeLabel.Text = "Breed Type:";
-            // 
             // breedTypeTextBox
             // 
             this.breedTypeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "BreedType", true));
@@ -253,15 +273,6 @@ namespace VetClinicApp
             this.breedTypeTextBox.Size = new System.Drawing.Size(100, 20);
             this.breedTypeTextBox.TabIndex = 29;
             // 
-            // colourLabel
-            // 
-            colourLabel.AutoSize = true;
-            colourLabel.Location = new System.Drawing.Point(95, 375);
-            colourLabel.Name = "colourLabel";
-            colourLabel.Size = new System.Drawing.Size(40, 13);
-            colourLabel.TabIndex = 30;
-            colourLabel.Text = "Colour:";
-            // 
             // colourTextBox
             // 
             this.colourTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Colour", true));
@@ -269,15 +280,6 @@ namespace VetClinicApp
             this.colourTextBox.Name = "colourTextBox";
             this.colourTextBox.Size = new System.Drawing.Size(100, 20);
             this.colourTextBox.TabIndex = 31;
-            // 
-            // ownerIDLabel
-            // 
-            ownerIDLabel.AutoSize = true;
-            ownerIDLabel.Location = new System.Drawing.Point(95, 401);
-            ownerIDLabel.Name = "ownerIDLabel";
-            ownerIDLabel.Size = new System.Drawing.Size(55, 13);
-            ownerIDLabel.TabIndex = 32;
-            ownerIDLabel.Text = "Owner ID:";
             // 
             // ownerIDTextBox
             // 
@@ -310,14 +312,15 @@ namespace VetClinicApp
             this.Controls.Add(this.ownerIDTextBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PetCardForm";
             this.Text = "Амбулаторная карта питомца";
             this.Load += new System.EventHandler(this.PetCardForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

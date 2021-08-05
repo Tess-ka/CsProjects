@@ -29,6 +29,22 @@ namespace VetClinicApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Питомцы");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Владельцы");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Ветеринары");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Услуги");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Прививки");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Справочники    ", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Все случаи");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Посещения    ", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormVet));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +64,8 @@ namespace VetClinicApp
             this.ProgramMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -94,14 +112,14 @@ namespace VetClinicApp
             // PetSearchMenuItem
             // 
             this.PetSearchMenuItem.Name = "PetSearchMenuItem";
-            this.PetSearchMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PetSearchMenuItem.Size = new System.Drawing.Size(163, 22);
             this.PetSearchMenuItem.Text = "Поиск питомца";
             this.PetSearchMenuItem.Click += new System.EventHandler(this.PetSearchMenuItem_Click);
             // 
             // ReferenceMenuItem
             // 
             this.ReferenceMenuItem.Name = "ReferenceMenuItem";
-            this.ReferenceMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ReferenceMenuItem.Size = new System.Drawing.Size(163, 22);
             this.ReferenceMenuItem.Text = "Выдача справок";
             // 
             // DirectoryMenuItem
@@ -119,33 +137,33 @@ namespace VetClinicApp
             // PetMenuItem
             // 
             this.PetMenuItem.Name = "PetMenuItem";
-            this.PetMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.PetMenuItem.Size = new System.Drawing.Size(141, 22);
             this.PetMenuItem.Text = "Питомцы";
             // 
             // OwnerMenuItem
             // 
             this.OwnerMenuItem.Name = "OwnerMenuItem";
-            this.OwnerMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OwnerMenuItem.Size = new System.Drawing.Size(141, 22);
             this.OwnerMenuItem.Text = "Владельцы";
             this.OwnerMenuItem.Click += new System.EventHandler(this.OwnerMenuItem_Click);
             // 
             // DoctorMenuItem
             // 
             this.DoctorMenuItem.Name = "DoctorMenuItem";
-            this.DoctorMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.DoctorMenuItem.Text = "Доктора";
+            this.DoctorMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.DoctorMenuItem.Text = "Ветеринары";
             this.DoctorMenuItem.Click += new System.EventHandler(this.DoctorMenuItem_Click);
             // 
             // ServicesMenuItem
             // 
             this.ServicesMenuItem.Name = "ServicesMenuItem";
-            this.ServicesMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ServicesMenuItem.Size = new System.Drawing.Size(141, 22);
             this.ServicesMenuItem.Text = "Услуги";
             // 
             // VaccinationsMenuItem
             // 
             this.VaccinationsMenuItem.Name = "VaccinationsMenuItem";
-            this.VaccinationsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.VaccinationsMenuItem.Size = new System.Drawing.Size(141, 22);
             this.VaccinationsMenuItem.Text = "Прививки";
             // 
             // SettingsMenuItem
@@ -200,13 +218,75 @@ namespace VetClinicApp
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(30, 17);
             this.toolStripStatusLabel1.Text = "Ку :)";
             // 
+            // treeView1
+            // 
+            this.treeView1.AllowDrop = true;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.ImageIndex = 0;
+            this.treeView1.ImageList = this.imageList1;
+            this.treeView1.Indent = 24;
+            this.treeView1.Location = new System.Drawing.Point(0, 24);
+            this.treeView1.Name = "treeView1";
+            treeNode1.ImageKey = "documenthorizontal.ico";
+            treeNode1.Name = "Node1";
+            treeNode1.SelectedImageKey = "document (1).ico";
+            treeNode1.Text = "Питомцы";
+            treeNode2.ImageKey = "documenthorizontal.ico";
+            treeNode2.Name = "Node2";
+            treeNode2.SelectedImageKey = "document (1).ico";
+            treeNode2.Text = "Владельцы";
+            treeNode3.ImageKey = "documenthorizontal.ico";
+            treeNode3.Name = "Node3";
+            treeNode3.SelectedImageKey = "document (1).ico";
+            treeNode3.Text = "Ветеринары";
+            treeNode4.ImageKey = "documenthorizontal.ico";
+            treeNode4.Name = "Node4";
+            treeNode4.SelectedImageKey = "document (1).ico";
+            treeNode4.Text = "Услуги";
+            treeNode5.ImageKey = "documenthorizontal.ico";
+            treeNode5.Name = "Node7";
+            treeNode5.SelectedImageKey = "document (1).ico";
+            treeNode5.Text = "Прививки";
+            treeNode6.ImageKey = "foldersmiley.ico";
+            treeNode6.Name = "Node0";
+            treeNode6.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            treeNode6.SelectedImageKey = "folderhorizontalopen.ico";
+            treeNode6.Text = "Справочники    ";
+            treeNode7.Name = "Node6";
+            treeNode7.SelectedImageKey = "document (1).ico";
+            treeNode7.Text = "Все случаи";
+            treeNode8.ImageKey = "foldersmiley.ico";
+            treeNode8.Name = "Node5";
+            treeNode8.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            treeNode8.SelectedImageKey = "folderhorizontalopen.ico";
+            treeNode8.Text = "Посещения    ";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode8});
+            this.treeView1.SelectedImageIndex = 0;
+            this.treeView1.Size = new System.Drawing.Size(244, 703);
+            this.treeView1.TabIndex = 9;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "documenthorizontal.ico");
+            this.imageList1.Images.SetKeyName(1, "foldersmiley.ico");
+            this.imageList1.Images.SetKeyName(2, "folderhorizontalopen.ico");
+            this.imageList1.Images.SetKeyName(3, "document (1).ico");
+            // 
             // MainFormVet
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 749);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFormVet";
@@ -240,6 +320,8 @@ namespace VetClinicApp
         private System.Windows.Forms.ToolStripMenuItem ClosedWinMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

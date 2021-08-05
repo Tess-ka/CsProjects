@@ -46,6 +46,7 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -70,6 +71,7 @@ namespace VetClinicApp
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.DoctorTableAdapter = this.doctorTableAdapter;
+            this.tableAdapterManager.ImagesTableAdapter = null;
             this.tableAdapterManager.OwnerTableAdapter = null;
             this.tableAdapterManager.PetTableAdapter = null;
             this.tableAdapterManager.ServiceTableAdapter = null;
@@ -122,7 +124,12 @@ namespace VetClinicApp
             // doctorDataGridView
             // 
             this.doctorDataGridView.AllowUserToAddRows = false;
+            this.doctorDataGridView.AllowUserToDeleteRows = false;
+            this.doctorDataGridView.AllowUserToOrderColumns = true;
             this.doctorDataGridView.AutoGenerateColumns = false;
+            this.doctorDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.doctorDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.doctorDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.doctorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -130,12 +137,15 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn6,
+            this.Phone});
             this.doctorDataGridView.DataSource = this.doctorBindingSource;
             this.doctorDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.doctorDataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.doctorDataGridView.Location = new System.Drawing.Point(0, 25);
             this.doctorDataGridView.Name = "doctorDataGridView";
             this.doctorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.doctorDataGridView.ShowRowErrors = false;
             this.doctorDataGridView.Size = new System.Drawing.Size(800, 496);
             this.doctorDataGridView.TabIndex = 1;
             // 
@@ -144,34 +154,35 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn1.DataPropertyName = "DoctorId";
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Lastname";
             this.dataGridViewTextBoxColumn2.HeaderText = "Фамилия";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Firstname";
             this.dataGridViewTextBoxColumn3.HeaderText = "Имя";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Fathername";
             this.dataGridViewTextBoxColumn4.HeaderText = "Отчество";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Birthday";
             this.dataGridViewTextBoxColumn5.HeaderText = "День рождения";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -180,7 +191,14 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Qualification";
             this.dataGridViewTextBoxColumn6.HeaderText = "Квалификация";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "Phone";
+            this.Phone.HeaderText = "Телефон";
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
             // 
             // DoctorForm
             // 
@@ -189,6 +207,7 @@ namespace VetClinicApp
             this.ClientSize = new System.Drawing.Size(800, 521);
             this.Controls.Add(this.doctorDataGridView);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DoctorForm";
             this.Text = "Ветеринары";
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
@@ -218,5 +237,6 @@ namespace VetClinicApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
     }
 }

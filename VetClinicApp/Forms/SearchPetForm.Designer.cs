@@ -59,6 +59,9 @@ namespace VetClinicApp
             this.treatmentСaseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button_search_pet = new System.Windows.Forms.Button();
+            this.txtSearchPet = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_search_owner = new System.Windows.Forms.Button();
@@ -72,9 +75,8 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtSearchPet = new System.Windows.Forms.TextBox();
-            this.button_search_pet = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             petIdLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             speciesLabel = new System.Windows.Forms.Label();
@@ -91,10 +93,10 @@ namespace VetClinicApp
             ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // petIdLabel
@@ -169,6 +171,7 @@ namespace VetClinicApp
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.DoctorTableAdapter = null;
+            this.tableAdapterManager.ImagesTableAdapter = null;
             this.tableAdapterManager.OwnerTableAdapter = null;
             this.tableAdapterManager.PetTableAdapter = this.petTableAdapter;
             this.tableAdapterManager.ServiceTableAdapter = null;
@@ -330,6 +333,33 @@ namespace VetClinicApp
             this.tabPage1.Text = "Поиск по питомцу";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button_search_pet
+            // 
+            this.button_search_pet.Location = new System.Drawing.Point(362, 3);
+            this.button_search_pet.Name = "button_search_pet";
+            this.button_search_pet.Size = new System.Drawing.Size(75, 26);
+            this.button_search_pet.TabIndex = 5;
+            this.button_search_pet.Text = "Найти";
+            this.button_search_pet.UseVisualStyleBackColor = true;
+            this.button_search_pet.Click += new System.EventHandler(this.button_search_pet_Click);
+            // 
+            // txtSearchPet
+            // 
+            this.txtSearchPet.Location = new System.Drawing.Point(39, 6);
+            this.txtSearchPet.Name = "txtSearchPet";
+            this.txtSearchPet.Size = new System.Drawing.Size(311, 20);
+            this.txtSearchPet.TabIndex = 4;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.pictureBox1);
@@ -437,32 +467,23 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn8.HeaderText = "OwnerID";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // pictureBox2
+            // button1
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(29, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.button1.Location = new System.Drawing.Point(294, 394);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // txtSearchPet
+            // button2
             // 
-            this.txtSearchPet.Location = new System.Drawing.Point(39, 6);
-            this.txtSearchPet.Name = "txtSearchPet";
-            this.txtSearchPet.Size = new System.Drawing.Size(311, 20);
-            this.txtSearchPet.TabIndex = 4;
-            // 
-            // button_search_pet
-            // 
-            this.button_search_pet.Location = new System.Drawing.Point(362, 3);
-            this.button_search_pet.Name = "button_search_pet";
-            this.button_search_pet.Size = new System.Drawing.Size(75, 26);
-            this.button_search_pet.TabIndex = 5;
-            this.button_search_pet.Text = "Найти";
-            this.button_search_pet.UseVisualStyleBackColor = true;
-            this.button_search_pet.Click += new System.EventHandler(this.button_search_pet_Click);
+            this.button2.Location = new System.Drawing.Point(376, 394);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // SearchPetForm
             // 
@@ -470,12 +491,15 @@ namespace VetClinicApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(468, 429);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.petDataGridView);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button_cardpet_open_new);
             this.Controls.Add(this.button_cardpet_open);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(484, 468);
             this.MinimizeBox = false;
@@ -483,7 +507,6 @@ namespace VetClinicApp
             this.Name = "SearchPetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Форма поиска питомца";
- //           this.Load += new System.EventHandler(this.SearchPetForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -497,11 +520,11 @@ namespace VetClinicApp
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,5 +569,7 @@ namespace VetClinicApp
         private System.Windows.Forms.Button button_search_pet;
         private System.Windows.Forms.TextBox txtSearchPet;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

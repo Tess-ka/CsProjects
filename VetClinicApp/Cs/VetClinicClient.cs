@@ -9,7 +9,7 @@ namespace VetClinicApp
 {
     public class VetClinicClient
     {
-
+        [STAThread]
         static void Main(string[] args)
         {
             Starter starter = new Starter();

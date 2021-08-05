@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Doctors">
       <EntityTypeMapping TypeName="DBVetClinicaModel.Doctor">
         <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Qualification" ColumnName="Qualification" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Fathername" ColumnName="Fathername" />

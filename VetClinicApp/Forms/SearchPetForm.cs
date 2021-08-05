@@ -15,34 +15,19 @@ namespace VetClinicApp
 {
     public partial class SearchPetForm : Form
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;database=DBVETCLINICA;Integrated Security=True";
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\DBVetClinica.mdf;Integrated Security=True";
+        PetContext db;
+        OwnerContext db1;
 
         public SearchPetForm()
         {
             InitializeComponent();
 
-        }
+            db = new PetContext();
+            db.Pets.Load();
 
-        //private void petBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        //{
-        //    this.Validate();
-        //    this.petBindingSource.EndEdit();
-        //    this.tableAdapterManager.UpdateAll(this.dBVetClinicaDataSet);
-
-        //}
-
-        //заоплняет поля перыми данными из списка по умолчанию
-
-        private void SearchPetForm_Load(object sender, EventArgs e)
-        {
-            //    // TODO: This line of code loads data into the 'dBVetClinicaDataSet.TreatmentСase' table. You can move, or remove it, as needed.
-            //    this.treatmentСaseTableAdapter.Fill(this.dBVetClinicaDataSet.TreatmentСase);
-            //    // TODO: This line of code loads data into the 'dBVetClinicaDataSet.Owner' table. You can move, or remove it, as needed.
-            //    this.ownerTableAdapter.Fill(this.dBVetClinicaDataSet.Owner);
-            //    // TODO: This line of code loads data into the 'dBVetClinicaDataSet.Pet' table. You can move, or remove it, as needed.
-            //    this.petTableAdapter.Fill(this.dBVetClinicaDataSet.Pet);
-            //Connect to sql database
-
+            db1 = new OwnerContext();
+            db1.Owners.Load();
         }
 
 
@@ -63,13 +48,18 @@ namespace VetClinicApp
         //{
         //    try
         //    {
-        //        using (DBVetClinicaDataSet db = new DBVetClinicaDataSet())
+        //        using (var context = new PetContext())
         //        {
-
+        //            var pets = context.Pets.SqlQuery("select *from Pet where PetId=@PetId or Name like @Name").ToList();
+        //            pets.
+ 
         //        }
-        //    } 
-        // }
-
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         //Поиск по питомцу
         private void button_search_pet_Click(object sender, EventArgs e)
@@ -91,12 +81,6 @@ namespace VetClinicApp
                             adapter.Fill(dt);
 
                             petDataGridView.DataSource = dt;
-
-                            //petIdTextBox.Text = 
-
-
-
-
                         }
                     }
                 }

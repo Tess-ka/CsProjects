@@ -39,4 +39,15 @@ namespace VetClinicApp
 
         public DbSet<Image> Images { get; set; }
     }
+
+    class OwnerContext : DbContext
+    {
+        public OwnerContext()
+            : base("Dbconnection")
+        { }
+
+        public DbSet<Owner> Owners { get; set; }
+
+    }
 }
+

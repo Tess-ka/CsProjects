@@ -104,6 +104,12 @@
     <Compile Include="Forms\MainFormVet.Designer.cs">
       <DependentUpon>MainFormVet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OwnerCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OwnerCardForm.Designer.cs">
+      <DependentUpon>OwnerCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainFormVet.resx">
       <DependentUpon>MainFormVet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OwnerCardForm.resx">
+      <DependentUpon>OwnerCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OwnerForm.resx">
       <DependentUpon>OwnerForm.cs</DependentUpon>

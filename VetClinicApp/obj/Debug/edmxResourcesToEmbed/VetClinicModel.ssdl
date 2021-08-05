@@ -10,6 +10,7 @@
     <Property Name="Fathername" Type="nchar" MaxLength="50" />
     <Property Name="Birthday" Type="date" />
     <Property Name="Qualification" Type="nchar" MaxLength="50" />
+    <Property Name="Phone" Type="nchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Images">
     <Key>

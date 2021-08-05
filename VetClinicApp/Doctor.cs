@@ -26,6 +26,7 @@ namespace VetClinicApp
         public string Fathername { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
         public string Qualification { get; set; }
+        public string Phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TreatmentСase> TreatmentСase { get; set; }

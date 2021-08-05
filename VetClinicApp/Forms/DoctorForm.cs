@@ -40,6 +40,7 @@ namespace VetClinicApp
             doctor.Firstname = dc.firstnameTextBox.Text;
             doctor.Fathername = dc.fathernameTextBox.Text;
             doctor.Birthday = dc.birthdayDateTimePicker.Value;
+            doctor.Phone = dc.phoneTextBox.Text;
             doctor.Qualification = dc.qualificationTextBox.Text;
 
             db.Doctors.Add(doctor);
@@ -63,10 +64,12 @@ namespace VetClinicApp
 
                 DoctorCardForm dc = new DoctorCardForm();
 
+                dc.doctorId.Text = doctor.DoctorId.ToString();
                 dc.lastnameTextBox.Text = doctor.Lastname;
                 dc.firstnameTextBox.Text = doctor.Firstname;
                 dc.fathernameTextBox.Text = doctor.Fathername;
                 dc.birthdayDateTimePicker.Value = doctor.Birthday.Value;
+                dc.phoneTextBox.Text = doctor.Phone;
                 dc.qualificationTextBox.Text = doctor.Qualification;
 
                 DialogResult result = dc.ShowDialog(this);
@@ -78,6 +81,7 @@ namespace VetClinicApp
                 doctor.Firstname = dc.firstnameTextBox.Text;
                 doctor.Fathername = dc.fathernameTextBox.Text;
                 doctor.Birthday = dc.birthdayDateTimePicker.Value;
+                doctor.Phone = dc.phoneTextBox.Text;
                 doctor.Qualification = dc.qualificationTextBox.Text;
 
                 db.SaveChanges();
@@ -109,6 +113,6 @@ namespace VetClinicApp
 
     }
 
-
 }
+
 
