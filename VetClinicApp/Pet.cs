@@ -22,8 +22,8 @@ namespace VetClinicApp
     
         public int PetId { get; set; }
         public string Name { get; set; }
-        public int Sex { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
+        public string Sex { get; set; }
+        public string Birthday { get; set; }
         public string Species { get; set; }
         public string BreedType { get; set; }
         public string Colour { get; set; }

@@ -17,7 +17,7 @@ namespace VetClinicApp
     {
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\DBVetClinica.mdf;Integrated Security=True";
         PetContext db;
-        OwnerContext db1;
+        OwnerContext ow;
 
         public SearchPetForm()
         {
@@ -26,23 +26,12 @@ namespace VetClinicApp
             db = new PetContext();
             db.Pets.Load();
 
-            db1 = new OwnerContext();
-            db1.Owners.Load();
+            ow = new OwnerContext();
+            ow.Owners.Load();
         }
 
 
-    //Кнопка открытия формы питомца
-    private void button_cardpet_open_Click(object sender, EventArgs e)
-        {
-            PetCardForm newForm = new PetCardForm(this);
-            newForm.Show();
-        }
-        
-        private void button_cardpet_open_new_Click(object sender, EventArgs e)
-        {
-            PetCardForm newForm = new PetCardForm(this);
-            newForm.Show();
-        }
+    
 
         //private void button_search_pet_Click(object sender, EventArgs e)
         //{
@@ -80,7 +69,7 @@ namespace VetClinicApp
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             adapter.Fill(dt);
 
-                            petDataGridView.DataSource = dt;
+                            //petDataGridView.DataSource = dt;
                         }
                     }
                 }
@@ -115,7 +104,7 @@ namespace VetClinicApp
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             adapter.Fill(dt);
 
-                            petDataGridView.DataSource = dt;
+                            //petDataGridView.DataSource = dt;
                             
                         }
                     }
@@ -133,6 +122,123 @@ namespace VetClinicApp
                 button_search_owner.PerformClick();
         }
 
+
+
+        //открыть карту владельца
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ownerIdTextBox.Text != null)
+            {
+                int OwnerId = int.Parse(ownerIdTextBox.Text); ;
+                
+                Owner owner = ow.Owners.Find(OwnerId);
+
+                OwnerCardForm dc = new OwnerCardForm();
+
+                dc.ownerIDTextBox.Text = owner.OwnerId.ToString();
+                dc.lastNameTextBox.Text = owner.LastName;
+                dc.firstNameTextBox.Text = owner.FirstName;
+                dc.fatherNameTextBox.Text = owner.FatherName;
+                dc.birthdayDateTimePicker.Value = owner.Birthday;
+                dc.telephoneTextBox.Text = owner.Telephone;
+                dc.e_mailTextBox.Text = owner.E_mail;
+
+                DialogResult result = dc.ShowDialog(this);
+
+                if (result == DialogResult.Cancel)
+                    return;
+
+                owner.LastName = dc.lastNameTextBox.Text;
+                owner.FirstName = dc.firstNameTextBox.Text;
+                owner.FatherName = dc.fatherNameTextBox.Text;
+                owner.Birthday = dc.birthdayDateTimePicker.Value;
+                owner.Telephone = dc.telephoneTextBox.Text;
+                owner.E_mail = dc.e_mailTextBox.Text;
+
+                db.SaveChanges();
+            }
+        }
+
+        //новый владелец
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OwnerCardForm dc = new OwnerCardForm();
+            DialogResult result = dc.ShowDialog(this);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            Owner owner = new Owner();
+            owner.LastName = dc.lastNameTextBox.Text;
+            owner.FirstName = dc.firstNameTextBox.Text;
+            owner.FatherName = dc.fatherNameTextBox.Text;
+            owner.Birthday = dc.birthdayDateTimePicker.Value;
+            owner.Telephone = dc.telephoneTextBox.Text;
+            owner.E_mail = dc.e_mailTextBox.Text;
+
+            ow.Owners.Add(owner);
+            ow.SaveChanges();
+        }
+
+        //Кнопка открытия формы питомца
+        private void button_cardpet_open_Click(object sender, EventArgs e)
+        {
+            if (petIdTextBox.Text != null)
+            {
+                int PetId = int.Parse(petIdTextBox.Text);
+
+                Pet pet = db.Pets.Find(PetId);
+
+                PetCardForm dc = new PetCardForm();
+
+                dc.petIdTextBox1.Text = pet.PetId.ToString();
+                dc.nameTextBox1.Text = pet.Name;
+                dc.sexComboBox.Text = pet.Sex;
+                dc.birthdayTextBox.Text = pet.Birthday;
+                dc.speciesTextBox.Text = pet.Species;
+                dc.breedTypeTextBox.Text = pet.BreedType;
+                dc.colourTextBox.Text = pet.Colour;
+
+                DialogResult result = dc.ShowDialog(this);
+
+                if (result == DialogResult.Cancel)
+                    return;
+
+                pet.Name = dc.nameTextBox1.Text;
+                pet.Sex = dc.sexComboBox.Text;
+                pet.Birthday = dc.birthdayTextBox.Text;
+                pet.Species = dc.speciesTextBox.Text;
+                pet.BreedType = dc.breedTypeTextBox.Text;
+                pet.Colour = dc.colourTextBox.Text;
+
+                db.SaveChanges();
+            }
+        }
+
+        //новый питомец
+        private void button_cardpet_open_new_Click(object sender, EventArgs e)
+        {
+            if (ownerIdTextBox.Text != null)
+            {
+                PetCardForm dc = new PetCardForm();
+                DialogResult result = dc.ShowDialog();
+
+                if (result == DialogResult.Cancel)
+                    return;
+
+                Pet pet = new Pet();
+                pet.Name = dc.nameTextBox1.Text;
+                pet.Sex = dc.sexComboBox.Text;
+                pet.Birthday = dc.birthdayTextBox.Text;
+                pet.Species = dc.speciesTextBox.Text;
+                pet.BreedType = dc.breedTypeTextBox.Text;
+                pet.Colour = dc.colourTextBox.Text;
+                pet.OwnerID = int.Parse(ownerIdTextBox.Text);
+
+                db.Pets.Add(pet);
+                db.SaveChanges();
+            }
+        }
     }
 }
 

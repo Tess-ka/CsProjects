@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace VetClinicApp
 {
@@ -17,19 +18,9 @@ namespace VetClinicApp
             InitializeComponent();
         }
 
-        private void PetCardForm_Load(object sender, EventArgs e)
+        public PetCardForm()
         {
-            // TODO: This line of code loads data into the 'dBVetClinicaDataSet.Pet' table. You can move, or remove it, as needed.
-            this.petTableAdapter.Fill(this.dBVetClinicaDataSet.Pet);
-
-        }
-
-        private void petBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.petBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dBVetClinicaDataSet);
-
+            InitializeComponent();
         }
     }
 }

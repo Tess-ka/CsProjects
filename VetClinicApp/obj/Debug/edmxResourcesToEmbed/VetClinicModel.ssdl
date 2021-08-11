@@ -37,8 +37,8 @@
     </Key>
     <Property Name="PetId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Sex" Type="int" Nullable="false" />
-    <Property Name="Birthday" Type="date" />
+    <Property Name="Sex" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Birthday" Type="nchar" MaxLength="15" />
     <Property Name="Species" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="BreedType" Type="nchar" MaxLength="10" />
     <Property Name="Colour" Type="nchar" MaxLength="10" Nullable="false" />

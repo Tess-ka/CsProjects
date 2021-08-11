@@ -53,9 +53,9 @@
     </Key>
     <Property Name="PetId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Sex" Type="Int32" Nullable="false" />
-    <Property Name="Birthday" Type="DateTime" Precision="0" />
-    <Property Name="Species" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Sex" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="Birthday" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
+    <Property Name="Species" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
     <Property Name="BreedType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Colour" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="OwnerID" Type="Int32" />

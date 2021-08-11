@@ -1327,7 +1327,7 @@ namespace VetClinicApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetRow AddPetRow(int PetId, string Name, int Sex, System.DateTime Birthday, string Species, string BreedType, string Colour, OwnerRow parentOwnerRowByFK_Pet_Owner) {
+            public PetRow AddPetRow(int PetId, string Name, char Sex, string Birthday, string Species, string BreedType, string Colour, OwnerRow parentOwnerRowByFK_Pet_Owner) {
                 PetRow rowPetRow = ((PetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PetId,
@@ -1387,9 +1387,9 @@ namespace VetClinicApp {
                 base.Columns.Add(this.columnPetId);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
-                this.columnSex = new global::System.Data.DataColumn("Sex", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnSex = new global::System.Data.DataColumn("Sex", typeof(char), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSex);
-                this.columnBirthday = new global::System.Data.DataColumn("Birthday", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnBirthday = new global::System.Data.DataColumn("Birthday", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBirthday);
                 this.columnSpecies = new global::System.Data.DataColumn("Species", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSpecies);
@@ -2845,9 +2845,9 @@ namespace VetClinicApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Sex {
+            public char Sex {
                 get {
-                    return ((int)(this[this.tablePet.SexColumn]));
+                    return ((char)(this[this.tablePet.SexColumn]));
                 }
                 set {
                     this[this.tablePet.SexColumn] = value;
@@ -2856,10 +2856,10 @@ namespace VetClinicApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime Birthday {
+            public string Birthday {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablePet.BirthdayColumn]));
+                        return ((string)(this[this.tablePet.BirthdayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Birthday\' in table \'Pet\' is DBNull.", e);
@@ -4733,7 +4733,7 @@ SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID FROM Pet 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID FROM dbo.P" +
@@ -4748,10 +4748,22 @@ SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID FROM Pet 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID \r\nFROM dbo" +
-                ".Pet\r\nWHERE PetId = @PetId";
+            this._commandCollection[2].CommandText = "SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID FROM dbo.P" +
+                "et\r\nWHERE OwnerID = @OwnerID";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PetId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OwnerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OwnerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID \r\nFROM dbo" +
+                ".Pet\r\nWHERE PetId = @PetId";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PetId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PetId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID \r\nFROM dbo" +
+                ".Pet\r\nWhere OwnerID = @OwnerID";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OwnerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OwnerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4802,9 +4814,47 @@ SELECT PetId, Name, Sex, Birthday, Species, BreedType, Colour, OwnerID FROM Pet 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int PetIdSearch(DBVetClinicaDataSet.PetDataTable dataTable, int PetId) {
+        public virtual int FilterPet(DBVetClinicaDataSet.PetDataTable dataTable, global::System.Nullable<int> OwnerID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((OwnerID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(OwnerID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PetIdSearch(DBVetClinicaDataSet.PetDataTable dataTable, int PetId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PetId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int qwe(DBVetClinicaDataSet.PetDataTable dataTable, global::System.Nullable<int> OwnerID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((OwnerID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(OwnerID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }

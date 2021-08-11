@@ -16,15 +16,12 @@ namespace VetClinicApp
         public MainFormVet()
         {
             InitializeComponent();
-
         }
-
 
         private void ProgramMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("What? O_o");
         }
-
 
         private void OwnerMenuItem_Click(object sender, EventArgs e)
         {
@@ -49,7 +46,16 @@ namespace VetClinicApp
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Name == "Node2")
+            if (e.Node.Name == "Node1")
+
+            {
+                //Открытие формы списка питомцев
+                PetForm owner = new PetForm();
+                owner.MdiParent = this;
+                owner.Show();
+            }
+
+            else if(e.Node.Name == "Node2")
 
             {
                 //Открытие формы списка владельцев

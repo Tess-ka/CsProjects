@@ -37,3 +37,5 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\Entit
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.DoctorCardForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.OwnerCardForm.resources
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.PetForm.resources
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.PetSelectionForm.resources

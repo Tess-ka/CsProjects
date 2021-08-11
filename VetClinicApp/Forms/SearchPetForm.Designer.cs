@@ -36,6 +36,7 @@ namespace VetClinicApp
             System.Windows.Forms.Label breedTypeLabel;
             System.Windows.Forms.Label lastNameLabel;
             System.Windows.Forms.Label telephoneLabel;
+            System.Windows.Forms.Label ownerIdLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchPetForm));
             this.dBVetClinicaDataSet = new VetClinicApp.DBVetClinicaDataSet();
             this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,16 +48,14 @@ namespace VetClinicApp
             this.breedTypeTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.telephoneTextBox = new System.Windows.Forms.TextBox();
+            this.ownerIdTextBox = new System.Windows.Forms.TextBox();
             this.ownerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.telephoneTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.ownerTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.OwnerTableAdapter();
             this.button_cardpet_open = new System.Windows.Forms.Button();
             this.button_cardpet_open_new = new System.Windows.Forms.Button();
             this.treatmentСaseTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TreatmentСaseTableAdapter();
-            this.treatmentСaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.treatmentСaseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.treatmentСaseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button_search_pet = new System.Windows.Forms.Button();
@@ -66,37 +65,47 @@ namespace VetClinicApp
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_search_owner = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.petDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.treatmentСaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.treatmentСaseBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.treatmentСaseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.treatmentСaseDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             petIdLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             speciesLabel = new System.Windows.Forms.Label();
             breedTypeLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             telephoneLabel = new System.Windows.Forms.Label();
+            ownerIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseDataGridView)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // petIdLabel
@@ -147,11 +156,20 @@ namespace VetClinicApp
             // telephoneLabel
             // 
             telephoneLabel.AutoSize = true;
-            telephoneLabel.Location = new System.Drawing.Point(6, 48);
+            telephoneLabel.Location = new System.Drawing.Point(6, 52);
             telephoneLabel.Name = "telephoneLabel";
             telephoneLabel.Size = new System.Drawing.Size(55, 13);
             telephoneLabel.TabIndex = 2;
             telephoneLabel.Text = "Телефон:";
+            // 
+            // ownerIdLabel
+            // 
+            ownerIdLabel.AutoSize = true;
+            ownerIdLabel.Location = new System.Drawing.Point(258, 22);
+            ownerIdLabel.Name = "ownerIdLabel";
+            ownerIdLabel.Size = new System.Drawing.Size(21, 13);
+            ownerIdLabel.TabIndex = 4;
+            ownerIdLabel.Text = "ID:";
             // 
             // dBVetClinicaDataSet
             // 
@@ -224,39 +242,49 @@ namespace VetClinicApp
             this.groupBox1.Controls.Add(speciesLabel);
             this.groupBox1.Controls.Add(this.nameTextBox);
             this.groupBox1.Controls.Add(nameLabel);
-            this.groupBox1.Location = new System.Drawing.Point(9, 75);
+            this.groupBox1.Location = new System.Drawing.Point(9, 162);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 76);
+            this.groupBox1.Size = new System.Drawing.Size(360, 85);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Данные о питомце";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(ownerIdLabel);
+            this.groupBox2.Controls.Add(this.ownerIdTextBox);
             this.groupBox2.Controls.Add(telephoneLabel);
             this.groupBox2.Controls.Add(this.telephoneTextBox);
             this.groupBox2.Controls.Add(lastNameLabel);
             this.groupBox2.Controls.Add(this.lastNameTextBox);
-            this.groupBox2.Location = new System.Drawing.Point(9, 151);
+            this.groupBox2.Location = new System.Drawing.Point(9, 74);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 78);
+            this.groupBox2.Size = new System.Drawing.Size(360, 85);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Владелец";
             // 
-            // telephoneTextBox
+            // ownerIdTextBox
             // 
-            this.telephoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ownerBindingSource, "Telephone", true));
-            this.telephoneTextBox.Enabled = false;
-            this.telephoneTextBox.Location = new System.Drawing.Point(73, 45);
-            this.telephoneTextBox.Name = "telephoneTextBox";
-            this.telephoneTextBox.Size = new System.Drawing.Size(280, 20);
-            this.telephoneTextBox.TabIndex = 3;
+            this.ownerIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ownerBindingSource, "OwnerId", true));
+            this.ownerIdTextBox.Location = new System.Drawing.Point(285, 19);
+            this.ownerIdTextBox.Name = "ownerIdTextBox";
+            this.ownerIdTextBox.Size = new System.Drawing.Size(68, 20);
+            this.ownerIdTextBox.TabIndex = 5;
             // 
             // ownerBindingSource
             // 
             this.ownerBindingSource.DataMember = "Owner";
             this.ownerBindingSource.DataSource = this.dBVetClinicaDataSet;
+            // 
+            // telephoneTextBox
+            // 
+            this.telephoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ownerBindingSource, "Telephone", true));
+            this.telephoneTextBox.Enabled = false;
+            this.telephoneTextBox.Location = new System.Drawing.Point(73, 49);
+            this.telephoneTextBox.Name = "telephoneTextBox";
+            this.telephoneTextBox.Size = new System.Drawing.Size(280, 20);
+            this.telephoneTextBox.TabIndex = 3;
             // 
             // lastNameTextBox
             // 
@@ -264,7 +292,7 @@ namespace VetClinicApp
             this.lastNameTextBox.Enabled = false;
             this.lastNameTextBox.Location = new System.Drawing.Point(73, 19);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(280, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(165, 20);
             this.lastNameTextBox.TabIndex = 1;
             // 
             // ownerTableAdapter
@@ -273,9 +301,9 @@ namespace VetClinicApp
             // 
             // button_cardpet_open
             // 
-            this.button_cardpet_open.Location = new System.Drawing.Point(375, 80);
+            this.button_cardpet_open.Location = new System.Drawing.Point(375, 168);
             this.button_cardpet_open.Name = "button_cardpet_open";
-            this.button_cardpet_open.Size = new System.Drawing.Size(85, 71);
+            this.button_cardpet_open.Size = new System.Drawing.Size(99, 37);
             this.button_cardpet_open.TabIndex = 21;
             this.button_cardpet_open.Text = "Открыть карту питомца";
             this.button_cardpet_open.UseVisualStyleBackColor = true;
@@ -283,32 +311,18 @@ namespace VetClinicApp
             // 
             // button_cardpet_open_new
             // 
-            this.button_cardpet_open_new.Location = new System.Drawing.Point(375, 156);
+            this.button_cardpet_open_new.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button_cardpet_open_new.Location = new System.Drawing.Point(376, 210);
             this.button_cardpet_open_new.Name = "button_cardpet_open_new";
-            this.button_cardpet_open_new.Size = new System.Drawing.Size(85, 73);
+            this.button_cardpet_open_new.Size = new System.Drawing.Size(99, 37);
             this.button_cardpet_open_new.TabIndex = 22;
             this.button_cardpet_open_new.Text = "Новый питомец";
-            this.button_cardpet_open_new.UseVisualStyleBackColor = true;
+            this.button_cardpet_open_new.UseVisualStyleBackColor = false;
             this.button_cardpet_open_new.Click += new System.EventHandler(this.button_cardpet_open_new_Click);
             // 
             // treatmentСaseTableAdapter
             // 
             this.treatmentСaseTableAdapter.ClearBeforeFill = true;
-            // 
-            // treatmentСaseBindingSource
-            // 
-            this.treatmentСaseBindingSource.DataMember = "FK_TreatmentСase_PetId";
-            this.treatmentСaseBindingSource.DataSource = this.petBindingSource;
-            // 
-            // treatmentСaseBindingSource1
-            // 
-            this.treatmentСaseBindingSource1.DataMember = "FK_TreatmentСase_PetId";
-            this.treatmentСaseBindingSource1.DataSource = this.petBindingSource;
-            // 
-            // treatmentСaseBindingSource2
-            // 
-            this.treatmentСaseBindingSource2.DataMember = "FK_TreatmentСase_PetId";
-            this.treatmentСaseBindingSource2.DataSource = this.petBindingSource;
             // 
             // tabControl1
             // 
@@ -317,7 +331,7 @@ namespace VetClinicApp
             this.tabControl1.Location = new System.Drawing.Point(9, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(451, 61);
+            this.tabControl1.Size = new System.Drawing.Size(466, 61);
             this.tabControl1.TabIndex = 23;
             // 
             // tabPage1
@@ -328,7 +342,7 @@ namespace VetClinicApp
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(443, 35);
+            this.tabPage1.Size = new System.Drawing.Size(458, 35);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Поиск по питомцу";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -337,7 +351,7 @@ namespace VetClinicApp
             // 
             this.button_search_pet.Location = new System.Drawing.Point(362, 3);
             this.button_search_pet.Name = "button_search_pet";
-            this.button_search_pet.Size = new System.Drawing.Size(75, 26);
+            this.button_search_pet.Size = new System.Drawing.Size(85, 26);
             this.button_search_pet.TabIndex = 5;
             this.button_search_pet.Text = "Найти";
             this.button_search_pet.UseVisualStyleBackColor = true;
@@ -368,7 +382,7 @@ namespace VetClinicApp
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(443, 35);
+            this.tabPage2.Size = new System.Drawing.Size(458, 35);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Поиск по владельцу";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -400,100 +414,185 @@ namespace VetClinicApp
             this.txtSearch.Size = new System.Drawing.Size(311, 20);
             this.txtSearch.TabIndex = 0;
             // 
-            // petDataGridView
-            // 
-            this.petDataGridView.AutoGenerateColumns = false;
-            this.petDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.petDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.petDataGridView.DataSource = this.petBindingSource;
-            this.petDataGridView.Location = new System.Drawing.Point(9, 235);
-            this.petDataGridView.Name = "petDataGridView";
-            this.petDataGridView.Size = new System.Drawing.Size(451, 121);
-            this.petDataGridView.TabIndex = 23;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PetId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PetId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Sex";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Sex";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Birthday";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Birthday";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Species";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Species";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "BreedType";
-            this.dataGridViewTextBoxColumn6.HeaderText = "BreedType";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Colour";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Colour";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "OwnerID";
-            this.dataGridViewTextBoxColumn8.HeaderText = "OwnerID";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(294, 394);
+            this.button1.Location = new System.Drawing.Point(318, 455);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
+            this.button1.Text = "Ок";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(376, 394);
+            this.button2.Location = new System.Drawing.Point(399, 455);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 25;
-            this.button2.Text = "button2";
+            this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // treatmentСaseBindingSource
+            // 
+            this.treatmentСaseBindingSource.DataMember = "FK_TreatmentСase_PetId";
+            this.treatmentСaseBindingSource.DataSource = this.petBindingSource;
+            // 
+            // treatmentСaseBindingSource1
+            // 
+            this.treatmentСaseBindingSource1.DataMember = "FK_TreatmentСase_PetId";
+            this.treatmentСaseBindingSource1.DataSource = this.petBindingSource;
+            // 
+            // treatmentСaseBindingSource2
+            // 
+            this.treatmentСaseBindingSource2.DataMember = "FK_TreatmentСase_PetId";
+            this.treatmentСaseBindingSource2.DataSource = this.petBindingSource;
+            // 
+            // treatmentСaseDataGridView
+            // 
+            this.treatmentСaseDataGridView.AllowUserToAddRows = false;
+            this.treatmentСaseDataGridView.AllowUserToDeleteRows = false;
+            this.treatmentСaseDataGridView.AllowUserToResizeColumns = false;
+            this.treatmentСaseDataGridView.AutoGenerateColumns = false;
+            this.treatmentСaseDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.treatmentСaseDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.treatmentСaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.treatmentСaseDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn10});
+            this.treatmentСaseDataGridView.DataSource = this.treatmentСaseBindingSource;
+            this.treatmentСaseDataGridView.Location = new System.Drawing.Point(9, 275);
+            this.treatmentСaseDataGridView.Name = "treatmentСaseDataGridView";
+            this.treatmentСaseDataGridView.ReadOnly = true;
+            this.treatmentСaseDataGridView.Size = new System.Drawing.Size(466, 174);
+            this.treatmentСaseDataGridView.TabIndex = 25;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Data";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Дата ";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Number";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Номер";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Cause";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Причина";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Diagnosis";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Диагноз";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Anamnesis";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Анамнез";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "VisualInspection";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Визуальный осмотр";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Conclusion";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Заключение";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(376, 79);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(99, 37);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Открыть карту владельца";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button4.Location = new System.Drawing.Point(376, 122);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(99, 37);
+            this.button4.TabIndex = 27;
+            this.button4.Text = "Новый владелец";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3});
+            this.toolStrip1.Location = new System.Drawing.Point(9, 250);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(81, 25);
+            this.toolStrip1.TabIndex = 28;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
             // SearchPetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(468, 429);
+            this.ClientSize = new System.Drawing.Size(484, 484);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.treatmentСaseDataGridView);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.petDataGridView);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button_cardpet_open_new);
             this.Controls.Add(this.button_cardpet_open);
@@ -501,9 +600,9 @@ namespace VetClinicApp
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(484, 468);
+            this.MaximumSize = new System.Drawing.Size(500, 523);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(484, 468);
+            this.MinimumSize = new System.Drawing.Size(500, 523);
             this.Name = "SearchPetForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Форма поиска питомца";
@@ -514,9 +613,6 @@ namespace VetClinicApp
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ownerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -524,8 +620,14 @@ namespace VetClinicApp
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treatmentСaseDataGridView)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -557,19 +659,25 @@ namespace VetClinicApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_search_owner;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView petDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button button_search_pet;
         private System.Windows.Forms.TextBox txtSearchPet;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView treatmentСaseDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.TextBox ownerIdTextBox;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }

@@ -23,10 +23,9 @@ namespace VetClinicApp
             db.Doctors.Load();
 
             doctorDataGridView.DataSource = db.Doctors.Local.ToBindingList();
-
         }
 
-        //insert
+        //insert Doctor
         private void InsertButton_Click(object sender, EventArgs e)
         {
             DoctorCardForm dc = new DoctorCardForm();
@@ -45,12 +44,10 @@ namespace VetClinicApp
 
             db.Doctors.Add(doctor);
             db.SaveChanges();
-
-            MessageBox.Show("Новый ветеринар добавлен");
         }
 
-        //update
-        private void UpdateButton_Click(object sender, EventArgs e)
+        //метод update
+        public void UpdateDoctorForm()
         {
             if (doctorDataGridView.SelectedRows.Count > 0)
             {
@@ -86,12 +83,22 @@ namespace VetClinicApp
 
                 db.SaveChanges();
                 doctorDataGridView.Refresh();
-
-                MessageBox.Show("Ветеринар изменён");
             }
         }
 
-        //Delete
+        //Update Doctor
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            UpdateDoctorForm();
+        }
+
+        //open DoctorForm & update
+        private void doctorDataGridView_CellDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            UpdateDoctorForm();
+        }
+
+        //Delete Doctor
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (doctorDataGridView.SelectedRows.Count > 0)
