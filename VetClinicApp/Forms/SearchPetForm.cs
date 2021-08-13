@@ -18,6 +18,7 @@ namespace VetClinicApp
         string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\DBVetClinica.mdf;Integrated Security=True";
         PetContext db;
         OwnerContext ow;
+        TreatmentCaseContext t;
 
         public SearchPetForm()
         {
@@ -28,20 +29,65 @@ namespace VetClinicApp
 
             ow = new OwnerContext();
             ow.Owners.Load();
+
+            t = new TreatmentCaseContext();
+            t.treatmentСases.Load();
+
+            treatmentСaseDataGridView.DataSource = t.treatmentСases.Local.ToBindingList();
         }
 
 
-    
+        private void button_search_pet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new PetContext())
+                {
+                    int @PetId = int.Parse(txtSearchPet.Text);
+                    string @Name = string.Format("%{0}%", txtSearchPet.Text);
 
-        //private void button_search_pet_Click(object sender, EventArgs e)
+                    var query = from p in context.Pets
+                                where p.PetId == @PetId ^ p.Name == @Name
+                                select p;
+
+                    Pet pet = context.Pets.Find(query);
+
+                    pet.PetId = int.Parse(petIdTextBox.Text);
+
+                }
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        ////Поиск по питомцу
+        ////private void button_search_pet_Click(object sender, EventArgs e)
         //{
         //    try
         //    {
-        //        using (var context = new PetContext())
+        //        using (SqlConnection connection = new SqlConnection(connectionString))
         //        {
-        //            var pets = context.Pets.SqlQuery("select *from Pet where PetId=@PetId or Name like @Name").ToList();
-        //            pets.
- 
+        //            if (connection.State == ConnectionState.Closed)
+        //                connection.Open();
+        //            using (DataTable dt = new DataTable("Pet"))
+        //            {
+
+        //                using (SqlCommand cmd = new SqlCommand("select *from Pet where PetId=@PetId or Name like @Name", connection))
+        //                {
+        //                    cmd.Parameters.AddWithValue("PetId", txtSearchPet.Text);
+        //                    cmd.Parameters.AddWithValue("Name", string.Format("%{0}%", txtSearchPet.Text));
+        //                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //                    adapter.Fill(dt); 
+
+        //                    //petDataGridView.DataSource = dt;
+        //                }
+        //            }
         //        }
         //    }
         //    catch (Exception ex)
@@ -49,36 +95,6 @@ namespace VetClinicApp
         //        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //    }
         //}
-
-        //Поиск по питомцу
-        private void button_search_pet_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
-                    using (DataTable dt = new DataTable("Pet"))
-                    {
-
-                        using (SqlCommand cmd = new SqlCommand("select *from Pet where PetId=@PetId or Name like @Name", connection))
-                        {
-                            cmd.Parameters.AddWithValue("PetId", txtSearchPet.Text);
-                            cmd.Parameters.AddWithValue("Name", string.Format("%{0}%", txtSearchPet.Text));
-                            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                            adapter.Fill(dt);
-
-                            //petDataGridView.DataSource = dt;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void txtSearchPet_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -129,9 +145,7 @@ namespace VetClinicApp
         {
             if (ownerIdTextBox.Text != null)
             {
-                int OwnerId = int.Parse(ownerIdTextBox.Text); ;
-                
-                Owner owner = ow.Owners.Find(OwnerId);
+                Owner owner = ow.Owners.Find(ownerIdTextBox.Text);
 
                 OwnerCardForm dc = new OwnerCardForm();
 
@@ -156,6 +170,10 @@ namespace VetClinicApp
                 owner.E_mail = dc.e_mailTextBox.Text;
 
                 db.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Error");
             }
         }
 
@@ -185,9 +203,7 @@ namespace VetClinicApp
         {
             if (petIdTextBox.Text != null)
             {
-                int PetId = int.Parse(petIdTextBox.Text);
-
-                Pet pet = db.Pets.Find(PetId);
+                Pet pet = db.Pets.Find(petIdTextBox.Text);
 
                 PetCardForm dc = new PetCardForm();
 
@@ -213,6 +229,10 @@ namespace VetClinicApp
 
                 db.SaveChanges();
             }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
         }
 
         //новый питомец
@@ -237,6 +257,97 @@ namespace VetClinicApp
 
                 db.Pets.Add(pet);
                 db.SaveChanges();
+            }
+        }
+
+        
+        //добавление осмотра
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            TreatmentCaseForm tc = new TreatmentCaseForm();
+            DialogResult result = tc.ShowDialog(this);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            TreatmentСase tcc = new TreatmentСase();
+
+            tcc.Data = tc.dataDateTimePicker.Value;
+            tcc.Number = int.Parse(tc.numberTextBox.Text);
+            tcc.VisualInspection = tc.visualInspectionTextBox.Text;
+            tcc.Anamnesis = tc.anamnesisTextBox.Text;
+            tcc.Diagnosis= tc.diagnosisTextBox.Text;
+            tcc.Cause = tc.causeTextBox.Text;
+            tcc.Conclusion = tc.conclusionTextBox.Text;
+            tcc.DoctorID = int.Parse(tc.doctorIDTextBox.Text); //сделать бы подвязку из пользователя...
+            tcc.PetID = int.Parse(petIdTextBox.Text);
+
+            t.treatmentСases.Add(tcc);
+            t.SaveChanges();
+        }
+
+        //открыть случай
+        private void treatmentСaseDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (treatmentСaseDataGridView.SelectedRows.Count > 0)
+            {
+                int index = treatmentСaseDataGridView.SelectedRows[0].Index;
+                int TreatCaseId = 0;
+                bool converted = Int32.TryParse(treatmentСaseDataGridView[0, index].Value.ToString(), out TreatCaseId);
+                if (converted == false)
+                    return;
+
+                TreatmentСase tcc = t.treatmentСases.Find(TreatCaseId);
+
+                TreatmentCaseForm tc = new TreatmentCaseForm();
+
+              //  tc.treatmentСaseIdTextBox.Text = tcc.TreatmentСaseId.ToString();
+                tc.dataDateTimePicker.Value = tcc.Data;
+                tc.numberTextBox.Text = tcc.Number.ToString();
+                tc.visualInspectionTextBox.Text = tcc.VisualInspection;
+                tc.anamnesisTextBox.Text = tcc.Anamnesis;
+                tc.diagnosisTextBox.Text = tcc.Diagnosis;
+                tc.causeTextBox.Text = tcc.Cause;
+                tc.conclusionTextBox.Text = tcc.Conclusion;
+                tc.doctorIDTextBox.Text = tcc.DoctorID.ToString();
+              //  tc.petIDTextBox.Text = tcc.PetID.ToString();
+
+                DialogResult result = tc.ShowDialog(this);
+
+                if (result == DialogResult.Cancel)
+                    return;
+
+                tcc.Data = tc.dataDateTimePicker.Value;
+                tcc.Number = int.Parse(tc.numberTextBox.Text);
+                tcc.VisualInspection = tc.visualInspectionTextBox.Text;
+                tcc.Anamnesis = tc.anamnesisTextBox.Text;
+                tcc.Diagnosis = tc.diagnosisTextBox.Text;
+                tcc.Cause = tc.causeTextBox.Text;
+                tcc.Conclusion = tc.conclusionTextBox.Text;
+                tcc.DoctorID = int.Parse(tc.doctorIDTextBox.Text); //сделать бы подвязку из пользователя...
+                tcc.PetID = int.Parse(petIdTextBox.Text);
+
+                t.SaveChanges();
+                treatmentСaseDataGridView.Refresh();
+            }
+        }
+
+        //удалить случай
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (treatmentСaseDataGridView.SelectedRows.Count > 0)
+            {
+                int index = treatmentСaseDataGridView.SelectedRows[0].Index;
+                int TreatCaseId = 0;
+                bool converted = Int32.TryParse(treatmentСaseDataGridView[0, index].Value.ToString(), out TreatCaseId);
+                if (converted == false)
+                    return;
+
+                TreatmentСase tcc = t.treatmentСases.Find(TreatCaseId);
+                t.treatmentСases.Remove(tcc);
+                t.SaveChanges();
+
+                MessageBox.Show("Питомец удалён");
             }
         }
     }

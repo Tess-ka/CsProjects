@@ -55,5 +55,15 @@ namespace VetClinicApp
         public DbSet<Owner> Owners { get; set; }
 
     }
+
+    class TreatmentCaseContext : DbContext
+    {
+        public TreatmentCaseContext()
+            : base("Dbconnection")
+        { }
+
+        public DbSet<TreatmentСase> treatmentСases { get; set; }
+
+    }
 }
 

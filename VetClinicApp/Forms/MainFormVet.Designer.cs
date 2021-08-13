@@ -50,13 +50,6 @@ namespace VetClinicApp
             this.CloseMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegistrationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PetSearchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ReferenceMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DirectoryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PetMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OwnerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DoctorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ServicesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.VaccinationsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WindowMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClosedWinMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +69,6 @@ namespace VetClinicApp
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenuItem,
             this.RegistrationMenuItem,
-            this.DirectoryMenuItem,
             this.SettingsMenuItem,
             this.WindowMenuItem,
             this.RefMenuItem});
@@ -97,14 +89,14 @@ namespace VetClinicApp
             // CloseMenuItem
             // 
             this.CloseMenuItem.Name = "CloseMenuItem";
-            this.CloseMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.CloseMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CloseMenuItem.Text = "Выход";
+            this.CloseMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
             // RegistrationMenuItem
             // 
             this.RegistrationMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.PetSearchMenuItem,
-            this.ReferenceMenuItem});
+            this.PetSearchMenuItem});
             this.RegistrationMenuItem.Name = "RegistrationMenuItem";
             this.RegistrationMenuItem.Size = new System.Drawing.Size(92, 20);
             this.RegistrationMenuItem.Text = "Регистратура";
@@ -112,59 +104,9 @@ namespace VetClinicApp
             // PetSearchMenuItem
             // 
             this.PetSearchMenuItem.Name = "PetSearchMenuItem";
-            this.PetSearchMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.PetSearchMenuItem.Size = new System.Drawing.Size(160, 22);
             this.PetSearchMenuItem.Text = "Поиск питомца";
             this.PetSearchMenuItem.Click += new System.EventHandler(this.PetSearchMenuItem_Click);
-            // 
-            // ReferenceMenuItem
-            // 
-            this.ReferenceMenuItem.Name = "ReferenceMenuItem";
-            this.ReferenceMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.ReferenceMenuItem.Text = "Выдача справок";
-            // 
-            // DirectoryMenuItem
-            // 
-            this.DirectoryMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.PetMenuItem,
-            this.OwnerMenuItem,
-            this.DoctorMenuItem,
-            this.ServicesMenuItem,
-            this.VaccinationsMenuItem});
-            this.DirectoryMenuItem.Name = "DirectoryMenuItem";
-            this.DirectoryMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.DirectoryMenuItem.Text = "Справочники";
-            // 
-            // PetMenuItem
-            // 
-            this.PetMenuItem.Name = "PetMenuItem";
-            this.PetMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.PetMenuItem.Text = "Питомцы";
-            // 
-            // OwnerMenuItem
-            // 
-            this.OwnerMenuItem.Name = "OwnerMenuItem";
-            this.OwnerMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.OwnerMenuItem.Text = "Владельцы";
-            this.OwnerMenuItem.Click += new System.EventHandler(this.OwnerMenuItem_Click);
-            // 
-            // DoctorMenuItem
-            // 
-            this.DoctorMenuItem.Name = "DoctorMenuItem";
-            this.DoctorMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.DoctorMenuItem.Text = "Ветеринары";
-            this.DoctorMenuItem.Click += new System.EventHandler(this.DoctorMenuItem_Click);
-            // 
-            // ServicesMenuItem
-            // 
-            this.ServicesMenuItem.Name = "ServicesMenuItem";
-            this.ServicesMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.ServicesMenuItem.Text = "Услуги";
-            // 
-            // VaccinationsMenuItem
-            // 
-            this.VaccinationsMenuItem.Name = "VaccinationsMenuItem";
-            this.VaccinationsMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.VaccinationsMenuItem.Text = "Прививки";
             // 
             // SettingsMenuItem
             // 
@@ -291,6 +233,7 @@ namespace VetClinicApp
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFormVet";
             this.Text = "Ветеринарная клиника";
+            this.Load += new System.EventHandler(this.MainFormVet_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -306,17 +249,10 @@ namespace VetClinicApp
         private System.Windows.Forms.ToolStripMenuItem CloseMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RegistrationMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PetSearchMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ReferenceMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DirectoryMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WindowMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RefMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ProgramMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PetMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem OwnerMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DoctorMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ServicesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem VaccinationsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClosedWinMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;

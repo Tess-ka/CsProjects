@@ -57,7 +57,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -122,6 +124,30 @@
     </Compile>
     <Compile Include="Forms\PetSelectionForm.Designer.cs">
       <DependentUpon>PetSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServiceCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServiceCardForm.Designer.cs">
+      <DependentUpon>ServiceCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServiceForm.Designer.cs">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TreatmentCaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TreatmentCaseForm.Designer.cs">
+      <DependentUpon>TreatmentCaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VaccinationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VaccinationsForm.Designer.cs">
+      <DependentUpon>VaccinationsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Image.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
@@ -200,6 +226,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PetSelectionForm.resx">
       <DependentUpon>PetSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServiceCardForm.resx">
+      <DependentUpon>ServiceCardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ServiceForm.resx">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TreatmentCaseForm.resx">
+      <DependentUpon>TreatmentCaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

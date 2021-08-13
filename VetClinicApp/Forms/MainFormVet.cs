@@ -23,20 +23,21 @@ namespace VetClinicApp
             MessageBox.Show("What? O_o");
         }
 
-        private void OwnerMenuItem_Click(object sender, EventArgs e)
-        {
-            OwnerForm newMDIChild = new OwnerForm();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
+        //private void OwnerMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    OwnerForm newMDIChild = new OwnerForm();
+        //    newMDIChild.MdiParent = this;
+        //    newMDIChild.Show();
+        //}
 
-        private void DoctorMenuItem_Click(object sender, EventArgs e)
-        {
-            DoctorForm newMDIChild = new DoctorForm();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
+        //private void DoctorMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    DoctorForm newMDIChild = new DoctorForm();
+        //    newMDIChild.MdiParent = this;
+        //    newMDIChild.Show();
+        //}
 
+        //Поиск питомца
         private void PetSearchMenuItem_Click(object sender, EventArgs e)
         {
             SearchPetForm newMDIChild = new SearchPetForm();
@@ -71,6 +72,41 @@ namespace VetClinicApp
                 doctor.MdiParent = this;
                 doctor.Show();
             }
+
+            else if (e.Node.Name == "Node4")
+            {
+                //Открытие формы списка услуг
+                ServiceForm service = new ServiceForm();
+                service.MdiParent = this;
+                service.Show();
+            }
+
+            else if (e.Node.Name == "Node7")
+            {
+                //Открытие формы списка прививок
+                VaccinationsForm Vacc = new VaccinationsForm();
+                Vacc.MdiParent = this;
+                Vacc.Show();
+            }
+
+            else if (e.Node.Name == "Node6")
+            {
+                //Открытие формы списка случаев лечения
+                TreatmentCaseForm TreatmentCase = new TreatmentCaseForm();
+                TreatmentCase.MdiParent = this;
+                TreatmentCase.Show();
+            }
+        }
+
+        private void MainFormVet_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //Закрыть приложение
+        private void CloseMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
