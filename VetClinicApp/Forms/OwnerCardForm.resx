@@ -141,8 +141,17 @@
   <metadata name="ownerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>312, 17</value>
   </metadata>
+  <metadata name="ownerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>312, 17</value>
+  </metadata>
   <metadata name="dBVetClinicaDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>150, 17</value>
+  </metadata>
+  <metadata name="dBVetClinicaDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>150, 17</value>
+  </metadata>
+  <metadata name="addressLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
   <metadata name="petBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>806, 17</value>
@@ -169,21 +178,21 @@
   <data name="toolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMvSURBVFhH7ZfvSxNxHMeloB7XA82o/oB+P+pBGOVtu7l5
-        ORQWigZLoVJLyWzmLFf+AJ3TWznNbTqdPShnJi5St7QtqzmtRcsoZCahMU0j1HBrm/VtZ98zlUUq7M5g
-        L3g/ufu84cX3Pgd3IUH+gZbP32hmMJi9DEaWGUH4TyMitsBb9NOLIGG9bPaAlcebsaekuK3x8TMWJnPG
-        giCRcIQ+as9m7MVFYufb9HMeF44DMhMiEbCwWN/MKLoVjlIPIVdcUu2tbNQBiUwNJnHZgiARW2zsNPG4
-        4Ti1XCyrDr0mrf3c1P4MDI7NgvvdL0ApXg8mKv5I2hMTv/v28gKsUIdSnrZHVK4eVXQa3YQcmeWSVmIP
-        IyMRWKOGFmXsjkKZ3NvYZloQW5xmQx+Q+CSJnexjsWxALN4Aq4FHX80K7VZzhu80FHsL5RrQPzjuV7JS
-        owN4rthJvN2wGnhIuSFjmht8vQ1ev9QAQtLy3rFE7p7eAopLbnlVqRn7YTXwLJcjs1yyWWfwiKXKL5TK
-        damQML0a+zj0UOhZLEfG2tcICiobgMa3k/ky1adcmYq+x/q3PNKJ54pkVV65PPMgrAaelcoNd+R4uuu5
-        I1oFfxesBp7VynXUsMNhNfAE5dZKUG6trFiuMyi3lNXKGWqZ22E18Kx85y4H5ZYQlFsrTWXI7lYcc9kf
-        ZPv9ZCJDm1yTEvPae7L9SpGhTU6n5HoG9Kl+pch8aBfOyxnrudtglRpq89m6xxUJcyYND3jG69aXXI2I
-        HY5noq6pvuvA1ioAJk0MmHxXukTOajz9w6DGRimXI6jJYxW14jzX7KtiQGSsJwcYfZJuh+r3yT2/BPTS
-        iLlmCULdDw6JVszfpLiKTjme5M3LkXnTlgyMDTHA1nEGGHxyWgmLun+IxQgSOLg0K252sRyRqf4CYMKT
-        5u4quF7a5AhQFHUeYfGAWZszLzbmO8ku+Uk3sZN1Yo6upRw9AEepJzmJLTh07DggQkjK8lCnUnh0WnEF
-        La/KQ3fCMfqIi+WOkIJR0ZhLkBB988b5qM3wNr2kCzj7DjOwnxgW7UiK5wjh5fVDciLGOHWCxv36fwkJ
-        +QXhZrjQx8GZkQAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMwSURBVFhH7ZfvSxNxHMeloB7XA82o/oB+P+qBGOVtu7l5
+        OSYsFA2WBqWWkpnmLFfqQKd2K+eP/XBzRoUzE1epM21mpZtmZEYhMwmNaRqhhlvbrG87+56pLFJhdwZ7
+        wfvJ3ecNL773ObgL8PMP9ALBxi4Gg9nNYKR1IYjgWWjoFniLfroRJKibzR7o4/FmrAkJzr7o6Bkzkzlj
+        RpAwOEIf6jMpe3GR2P42+azLgeOAzIRIBMws1rcuFN0KR6mHkJMUlLtLawxAKtOASVy2IEikn8+fJh43
+        HKeWC0XlgVeL1Z9rm56DwbFZcL+9FxTiWjBx/Y+kNTb2u2cvz8MKdSjlSXtEJZrRihaTk5Ajs1yyj9jD
+        sDAE1qihXsnfkSeTu2saOxbEFqeu1QKkHkliJy0sVj8QizfAqu8xlrMC2zWc4dtaiTtPrgM9g+NeJUt1
+        BoBnie3E2w2rvoeUGzIlOcHXW+D1Sx0gJM3vbUvk7hnNQFJQ4VYlpuyHVd+zXI7Mcsk6Q4tLXKz8Qqlc
+        mwoJMmqwj0MPMlyL5cj0WWpAbmk10Hl2Mkem+pQlU9H3WP+WxwbxXL6szC2Xpx6EVd+zUrnhR5mudi13
+        RK8Q7IJV37NaueZKdjCs+h6/3Frxy62VFcs1+eWWslq5VjVzO6z6npXv3CW/3BL8cmultgjZ3YBjDqsh
+        3esnExna5O4qMbe1M92rFBna5AxKrmvAmOhVisyHhxnzciYtdxusUoM6h214Uhwz16HjAdd41fqSqxSx
+        g/FU1DFluQb6G4SgQxcJJt8VLpHrNZ360arBRimXI6jMZuU34DzH7CsJIDLWmQlMHkmnTfX75F5cBEZp
+        yFydFKHuB4dELxZsUlxBp2xPs+flyLxpjAem6kjQ33watHrk9FIWdf8QixHGcPDitKjZxXJEpnpyQUdJ
+        3NwdBddNmxwBiqL2wywe6NJnzouNeU6yTX7CSexklZhjqC9BD8BR6omPYwsPHT0GiBCSsmzUrsw4Mq24
+        jJaUZaM74Rh9RPG5I6RgeATmEMZE3LxxLnwzvE0vyULOvhAG9hPDImxx0ZwMeHn9EB+LMU4ep3G//l8C
+        An4BMNi4kK+QOOUAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="toolStripButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

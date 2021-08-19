@@ -148,6 +148,7 @@ namespace VetClinicApp
             this.doctorDataGridView.ShowRowErrors = false;
             this.doctorDataGridView.Size = new System.Drawing.Size(800, 496);
             this.doctorDataGridView.TabIndex = 1;
+            this.doctorDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doctorDataGridView_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 

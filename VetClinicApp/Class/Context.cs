@@ -44,6 +44,12 @@ namespace VetClinicApp
         { }
 
         public DbSet<Image> Images { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<ImagesContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
     class OwnerContext : DbContext
@@ -64,6 +70,14 @@ namespace VetClinicApp
 
         public DbSet<TreatmentСase> treatmentСases { get; set; }
 
+    }
+    class ServiceContext : DbContext
+    {
+        public ServiceContext()
+            : base("Dbconnection")
+        { }
+
+        public DbSet<Service> services { get; set; }
     }
 }
 

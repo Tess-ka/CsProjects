@@ -40,5 +40,5 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetCl
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.PetForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.PetSelectionForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.TreatmentCaseForm.resources
-C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.Forms.ServiceCardForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.ServiceForm.resources
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.ServiceCardForm.resources

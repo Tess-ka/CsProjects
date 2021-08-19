@@ -1,0 +1,12 @@
+﻿Generated model file: VetClinicModel.edmx.
+Loading metadata from the database took 00:00:01.1119105.
+Generating the model took 00:00:01.3011020.
+Generated model file: VetClinicModel.edmx.
+Loading metadata from the database took 00:00:00.4373430.
+Generating the model took 00:00:00.8260366.
+Generated model file: VetClinicModel.edmx.
+Loading metadata from the database took 00:00:00.6742704.
+Generating the model took 00:00:00.8806425.
+Generated model file: VetClinicModel.edmx.
+Loading metadata from the database took 00:00:00.4187934.
+Generating the model took 00:00:00.8382772.

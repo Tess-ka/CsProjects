@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VetClinicApp.Forms
+namespace VetClinicApp
 {
     public partial class ServiceCardForm : Form
     {

@@ -11,6 +11,7 @@
     <Property Name="Birthday" Type="date" />
     <Property Name="Qualification" Type="nchar" MaxLength="50" />
     <Property Name="Phone" Type="nchar" MaxLength="30" />
+    <Property Name="Photo" Type="int" />
   </EntityType>
   <EntityType Name="Images">
     <Key>
@@ -18,6 +19,7 @@
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Images" Type="varchar(max)" Nullable="false" />
+    <Property Name="Path" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Owner">
     <Key>
@@ -30,6 +32,7 @@
     <Property Name="Birthday" Type="date" Nullable="false" />
     <Property Name="Telephone" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="E-mail" Type="nchar" MaxLength="50" />
+    <Property Name="Address" Type="nchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Pet">
     <Key>
@@ -43,6 +46,7 @@
     <Property Name="BreedType" Type="nchar" MaxLength="10" />
     <Property Name="Colour" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="OwnerID" Type="int" />
+    <Property Name="Сomment" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Service">
     <Key>

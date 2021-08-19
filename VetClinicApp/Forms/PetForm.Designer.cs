@@ -119,6 +119,7 @@ namespace VetClinicApp
             this.petGridView.AllowUserToResizeColumns = false;
             this.petGridView.AutoGenerateColumns = false;
             this.petGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.petGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.petGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.petGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.petGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

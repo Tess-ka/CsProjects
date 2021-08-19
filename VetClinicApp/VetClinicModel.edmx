@@ -16,6 +16,7 @@
           <Property Name="Birthday" Type="date" />
           <Property Name="Qualification" Type="nchar" MaxLength="50" />
           <Property Name="Phone" Type="nchar" MaxLength="30" />
+          <Property Name="Photo" Type="int" />
         </EntityType>
         <EntityType Name="Images">
           <Key>
@@ -23,6 +24,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Images" Type="varchar(max)" Nullable="false" />
+          <Property Name="Path" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Owner">
           <Key>
@@ -35,6 +37,7 @@
           <Property Name="Birthday" Type="date" Nullable="false" />
           <Property Name="Telephone" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="E-mail" Type="nchar" MaxLength="50" />
+          <Property Name="Address" Type="nchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Pet">
           <Key>
@@ -48,6 +51,7 @@
           <Property Name="BreedType" Type="nchar" MaxLength="10" />
           <Property Name="Colour" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="OwnerID" Type="int" />
+          <Property Name="Сomment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -176,6 +180,7 @@
           <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="Doctor" ToRole="TreatmentСase" />
           <Property Name="Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Photo" Type="Int32" />
         </EntityType>
         <EntityType Name="Owner">
           <Key>
@@ -189,6 +194,7 @@
           <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Pets" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Owner" ToRole="Pet" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Pet">
           <Key>
@@ -204,6 +210,7 @@
           <Property Name="OwnerID" Type="Int32" />
           <NavigationProperty Name="Owner" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Pet" ToRole="Owner" />
           <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="Pet" ToRole="TreatmentСase" />
+          <Property Name="Сomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -272,6 +279,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Images" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -292,6 +300,7 @@
           <EntitySetMapping Name="Doctors">
             <EntityTypeMapping TypeName="DBVetClinicaModel.Doctor">
               <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Qualification" ColumnName="Qualification" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -305,6 +314,7 @@
           <EntitySetMapping Name="Owners">
             <EntityTypeMapping TypeName="DBVetClinicaModel.Owner">
               <MappingFragment StoreEntitySet="Owner">
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="E_mail" ColumnName="E-mail" />
                 <ScalarProperty Name="Telephone" ColumnName="Telephone" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -318,6 +328,7 @@
           <EntitySetMapping Name="Pets">
             <EntityTypeMapping TypeName="DBVetClinicaModel.Pet">
               <MappingFragment StoreEntitySet="Pet">
+                <ScalarProperty Name="Сomment" ColumnName="Сomment" />
                 <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
                 <ScalarProperty Name="Colour" ColumnName="Colour" />
                 <ScalarProperty Name="BreedType" ColumnName="BreedType" />
@@ -357,6 +368,7 @@
           <EntitySetMapping Name="Images">
             <EntityTypeMapping TypeName="DBVetClinicaModel.Image">
               <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="Images" ColumnName="Images" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

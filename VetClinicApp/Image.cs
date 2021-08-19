@@ -16,5 +16,6 @@ namespace VetClinicApp
     {
         public int Id { get; set; }
         public string Images { get; set; }
+        public string Path { get; set; }
     }
 }

@@ -33,6 +33,7 @@
     <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="Doctor" ToRole="TreatmentСase" />
     <Property Name="Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="Photo" Type="Int32" />
   </EntityType>
   <EntityType Name="Owner">
     <Key>
@@ -46,6 +47,7 @@
     <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Pets" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Owner" ToRole="Pet" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Pet">
     <Key>
@@ -61,6 +63,7 @@
     <Property Name="OwnerID" Type="Int32" />
     <NavigationProperty Name="Owner" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Pet" ToRole="Owner" />
     <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="Pet" ToRole="TreatmentСase" />
+    <Property Name="Сomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Service">
     <Key>
@@ -129,6 +132,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Images" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

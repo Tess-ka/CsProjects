@@ -47,6 +47,7 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ownerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -138,7 +139,8 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.Address});
             this.ownerDataGridView.DataSource = this.ownerBindingSource;
             this.ownerDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ownerDataGridView.Location = new System.Drawing.Point(0, 25);
@@ -198,6 +200,12 @@ namespace VetClinicApp
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Адрес";
+            this.Address.Name = "Address";
+            // 
             // OwnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,5 +244,6 @@ namespace VetClinicApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
     }
 }

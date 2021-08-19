@@ -46,6 +46,7 @@ namespace VetClinicApp
                 dc.speciesTextBox.Text = pet.Species;
                 dc.breedTypeTextBox.Text = pet.BreedType;
                 dc.colourTextBox.Text = pet.Colour;
+                dc.ownerIDLabel1.Text = pet.OwnerID.ToString();
 
                 DialogResult result = dc.ShowDialog(this);
 

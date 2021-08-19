@@ -29,22 +29,23 @@ namespace VetClinicApp
         //insert Owner
         private void InsertButton_Click(object sender, EventArgs e)
         {
-            OwnerCardForm dc = new OwnerCardForm();
-            DialogResult result = dc.ShowDialog(this);
+            ////OwnerCardForm dc = new OwnerCardForm();
+            //DialogResult result = dc.ShowDialog(this);
 
-            if (result == DialogResult.Cancel)
-                return;
+            //if (result == DialogResult.Cancel)
+            //    return;
 
-            Owner owner = new Owner();
-            owner.LastName = dc.lastNameTextBox.Text;
-            owner.FirstName = dc.firstNameTextBox.Text;
-            owner.FatherName = dc.fatherNameTextBox.Text;
-            owner.Birthday = dc.birthdayDateTimePicker.Value;
-            owner.Telephone = dc.telephoneTextBox.Text;
-            owner.E_mail = dc.e_mailTextBox.Text;
+            //Owner owner = new Owner();
+            //owner.LastName = dc.lastNameTextBox.Text;
+            //owner.FirstName = dc.firstNameTextBox.Text;
+            //owner.FatherName = dc.fatherNameTextBox.Text;
+            //owner.Birthday = dc.birthdayDateTimePicker.Value;
+            //owner.Telephone = dc.telephoneTextBox.Text;
+            //owner.E_mail = dc.e_mailTextBox.Text;
+            //owner.Address = dc.addressTextBox.Text;
 
-            db.Owners.Add(owner);
-            db.SaveChanges();
+            //db.Owners.Add(owner);
+            //db.SaveChanges();
         }
 
         //метод update Owner
@@ -60,7 +61,7 @@ namespace VetClinicApp
 
                 Owner owner = db.Owners.Find(OwnerId);
 
-                OwnerCardForm dc = new OwnerCardForm();
+                OwnerCardForm dc = new OwnerCardForm(owner);
 
                 dc.ownerIDTextBox.Text = owner.OwnerId.ToString();
                 dc.lastNameTextBox.Text = owner.LastName;
@@ -69,6 +70,7 @@ namespace VetClinicApp
                 dc.birthdayDateTimePicker.Value = owner.Birthday;
                 dc.telephoneTextBox.Text = owner.Telephone;
                 dc.e_mailTextBox.Text = owner.E_mail;
+                dc.addressTextBox.Text = owner.Address;
 
                 DialogResult result = dc.ShowDialog(this);
 
@@ -81,6 +83,7 @@ namespace VetClinicApp
                 owner.Birthday = dc.birthdayDateTimePicker.Value;
                 owner.Telephone = dc.telephoneTextBox.Text;
                 owner.E_mail = dc.e_mailTextBox.Text;
+                owner.Address = dc.addressTextBox.Text;
 
                 db.SaveChanges();
                 ownerDataGridView.Refresh();

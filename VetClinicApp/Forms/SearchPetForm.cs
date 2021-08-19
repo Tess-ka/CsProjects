@@ -51,12 +51,12 @@ namespace VetClinicApp
                                 select p;
 
                     Pet pet = context.Pets.Find(query);
+                    this.lastNameTextBox.Text = $"{pet.Owner.LastName} {pet.Owner.FirstName} {pet.Owner.FatherName}";
+
 
                     pet.PetId = int.Parse(petIdTextBox.Text);
 
                 }
-
-
 
 
             }
@@ -147,27 +147,27 @@ namespace VetClinicApp
             {
                 Owner owner = ow.Owners.Find(ownerIdTextBox.Text);
 
-                OwnerCardForm dc = new OwnerCardForm();
+                //OwnerCardForm dc = new OwnerCardForm();
 
-                dc.ownerIDTextBox.Text = owner.OwnerId.ToString();
-                dc.lastNameTextBox.Text = owner.LastName;
-                dc.firstNameTextBox.Text = owner.FirstName;
-                dc.fatherNameTextBox.Text = owner.FatherName;
-                dc.birthdayDateTimePicker.Value = owner.Birthday;
-                dc.telephoneTextBox.Text = owner.Telephone;
-                dc.e_mailTextBox.Text = owner.E_mail;
+                //dc.ownerIDTextBox.Text = owner.OwnerId.ToString();
+                //dc.lastNameTextBox.Text = owner.LastName;
+                //dc.firstNameTextBox.Text = owner.FirstName;
+                //dc.fatherNameTextBox.Text = owner.FatherName;
+                //dc.birthdayDateTimePicker.Value = owner.Birthday;
+                //dc.telephoneTextBox.Text = owner.Telephone;
+                //dc.e_mailTextBox.Text = owner.E_mail;
 
-                DialogResult result = dc.ShowDialog(this);
+                //DialogResult result = dc.ShowDialog(this);
 
-                if (result == DialogResult.Cancel)
-                    return;
+                //if (result == DialogResult.Cancel)
+                //    return;
 
-                owner.LastName = dc.lastNameTextBox.Text;
-                owner.FirstName = dc.firstNameTextBox.Text;
-                owner.FatherName = dc.fatherNameTextBox.Text;
-                owner.Birthday = dc.birthdayDateTimePicker.Value;
-                owner.Telephone = dc.telephoneTextBox.Text;
-                owner.E_mail = dc.e_mailTextBox.Text;
+                //owner.LastName = dc.lastNameTextBox.Text;
+                //owner.FirstName = dc.firstNameTextBox.Text;
+                //owner.FatherName = dc.fatherNameTextBox.Text;
+                //owner.Birthday = dc.birthdayDateTimePicker.Value;
+                //owner.Telephone = dc.telephoneTextBox.Text;
+                //owner.E_mail = dc.e_mailTextBox.Text;
 
                 db.SaveChanges();
             }
@@ -180,22 +180,22 @@ namespace VetClinicApp
         //новый владелец
         private void button4_Click(object sender, EventArgs e)
         {
-            OwnerCardForm dc = new OwnerCardForm();
-            DialogResult result = dc.ShowDialog(this);
+            //OwnerCardForm dc = new OwnerCardForm();
+            //DialogResult result = dc.ShowDialog(this);
 
-            if (result == DialogResult.Cancel)
-                return;
+            //if (result == DialogResult.Cancel)
+            //    return;
 
-            Owner owner = new Owner();
-            owner.LastName = dc.lastNameTextBox.Text;
-            owner.FirstName = dc.firstNameTextBox.Text;
-            owner.FatherName = dc.fatherNameTextBox.Text;
-            owner.Birthday = dc.birthdayDateTimePicker.Value;
-            owner.Telephone = dc.telephoneTextBox.Text;
-            owner.E_mail = dc.e_mailTextBox.Text;
+            //Owner owner = new Owner();
+            //owner.LastName = dc.lastNameTextBox.Text;
+            //owner.FirstName = dc.firstNameTextBox.Text;
+            //owner.FatherName = dc.fatherNameTextBox.Text;
+            //owner.Birthday = dc.birthdayDateTimePicker.Value;
+            //owner.Telephone = dc.telephoneTextBox.Text;
+            //owner.E_mail = dc.e_mailTextBox.Text;
 
-            ow.Owners.Add(owner);
-            ow.SaveChanges();
+            //ow.Owners.Add(owner);
+            //ow.SaveChanges();
         }
 
         //Кнопка открытия формы питомца

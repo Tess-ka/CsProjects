@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Doctors">
       <EntityTypeMapping TypeName="DBVetClinicaModel.Doctor">
         <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Qualification" ColumnName="Qualification" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -17,6 +18,7 @@
     <EntitySetMapping Name="Owners">
       <EntityTypeMapping TypeName="DBVetClinicaModel.Owner">
         <MappingFragment StoreEntitySet="Owner">
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="E_mail" ColumnName="E-mail" />
           <ScalarProperty Name="Telephone" ColumnName="Telephone" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
@@ -30,6 +32,7 @@
     <EntitySetMapping Name="Pets">
       <EntityTypeMapping TypeName="DBVetClinicaModel.Pet">
         <MappingFragment StoreEntitySet="Pet">
+          <ScalarProperty Name="Сomment" ColumnName="Сomment" />
           <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
           <ScalarProperty Name="Colour" ColumnName="Colour" />
           <ScalarProperty Name="BreedType" ColumnName="BreedType" />
@@ -69,6 +72,7 @@
     <EntitySetMapping Name="Images">
       <EntityTypeMapping TypeName="DBVetClinicaModel.Image">
         <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Path" ColumnName="Path" />
           <ScalarProperty Name="Images" ColumnName="Images" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

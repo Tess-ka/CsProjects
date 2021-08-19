@@ -16,7 +16,7 @@ namespace VetClinicApp
         PetContext db;
         //OwnerContext bd;
 
-        public OwnerCardForm()
+        public OwnerCardForm(Owner owner)
         {
             InitializeComponent();
 
