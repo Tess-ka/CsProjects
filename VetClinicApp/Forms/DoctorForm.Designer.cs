@@ -37,7 +37,6 @@ namespace VetClinicApp
             this.tableAdapterManager = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.InsertButton = new System.Windows.Forms.ToolStripButton();
-            this.UpdateButton = new System.Windows.Forms.ToolStripButton();
             this.DeleteButton = new System.Windows.Forms.ToolStripButton();
             this.doctorDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,7 +81,6 @@ namespace VetClinicApp
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.InsertButton,
-            this.UpdateButton,
             this.DeleteButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -100,16 +98,6 @@ namespace VetClinicApp
             this.InsertButton.Size = new System.Drawing.Size(23, 22);
             this.InsertButton.Text = "InsertButton";
             this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
-            // 
-            // UpdateButton
-            // 
-            this.UpdateButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UpdateButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton.Image")));
-            this.UpdateButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(23, 22);
-            this.UpdateButton.Text = "UpdateButton";
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // DeleteButton
             // 
@@ -229,7 +217,6 @@ namespace VetClinicApp
         private DBVetClinicaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton InsertButton;
-        private System.Windows.Forms.ToolStripButton UpdateButton;
         private System.Windows.Forms.ToolStripButton DeleteButton;
         private System.Windows.Forms.DataGridView doctorDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

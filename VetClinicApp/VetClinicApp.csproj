@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Context.cs" />
-    <Compile Include="Class\Pet.cs" />
+    <Compile Include="Class\Photo.cs" />
     <Compile Include="DBVetClinicaDataSet.cs">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </Compile>
@@ -181,9 +181,6 @@
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\Starter.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>VetClinicModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="TreatmentСase.cs">
       <DependentUpon>VetClinicModel.tt</DependentUpon>
     </Compile>
@@ -248,7 +245,7 @@
     <EmbeddedResource Include="Forms\SearchPetForm.resx">
       <DependentUpon>SearchPetForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="App1.Config" />
     <None Include="DBVetClinicaDataSet.xsc">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </None>
@@ -279,7 +276,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\App.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBVetClinica.mdf">
@@ -294,6 +291,7 @@
       <LastGenOutput>VetClinicModel.Context.cs</LastGenOutput>
       <DependentUpon>VetClinicModel.edmx</DependentUpon>
     </Content>
+    <Content Include="VetClinicModel.edmx.sql" />
     <Content Include="VetClinicModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VetClinicModel.edmx</DependentUpon>

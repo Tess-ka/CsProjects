@@ -144,13 +144,37 @@
   <metadata name="dBVetClinicaDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>677, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BrowseButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANwSURBVFhH7ZZbU1JRFMfpoeml6Sv01JfoE/RSb70Ul5rM
+        Bx2rUTjwoNWMTQ+SGWWTcA5UamY3mco7jpcGNfNGmprMeMlbDiiIl9QCV3vDgY6wRI4csmlcM78R3Iv1
+        /3Eu7CPT6Tn419Dq2ZuycGEN+w0qaKysBlt7774SV5A27Hf9P4I1438Pp4cPJXUguBcOBJNFMsHaCYDW
+        OQD7PED9JN7T+A2gaSrUi61jJCVYR0S6FwB6yJDBZYDRHyGGVgEahJJEqGdRsL4Sek8/W7eL7J4Eu9wA
+        w0RiwPcnNBrHUkiE0u/Feyh0Bv1CfaSHvh5ZC/3tJ5+nGU7y/3AlLDhKhmBhqcBJzky4EhdEBqUKyQU7
+        5/3Atq/CnUYfdLv9aM8XXwCqBlcg3zoHBpsLPnsDaB9FMsEPM7/gYesy6F4sgpYn940Hap2bkR777CYY
+        2xYgp2wKrlgmI+ieTUOdc23bvDBJCX4l16Jt4ifoG3wRKQx9/VLwaAmltjMGGeYOuG5tAa6rBcoddng7
+        Ogif3B4Y9m7xqSIEh5a3wDq0DvnvvKgQBvPcDdeeTG8Ty7T0QZqZBRWXC0qOQcl+VQRNwx3gD/gTF8yr
+        8qASu8EQsktng0fssrmUCOhihHZC87IAsu8WJyaIhSeKpnIaLlkMqMTuaOHq/cJUCrog7XExEiyOzAcF
+        FbweLnirZpGcZhe5S8WRWV6BBoa5XVMC1j5bEGw9jILVbpzjco7vKGjsWhLNvbYxUJnjX3NULFzYuhA5
+        pymTVDDn9VM0SIg4QXXggkVzQhLBks4FuGjJQ4OEiBGkyFmGkURQ3zyABkQjWtDENKOCPTProij92BEz
+        XHhDhBn5PsYnQMwaJXoGYRwVFFvvHS0xw2mg2IqeITep1yURbByyxwyXSNAVEUyGa4aimOEYQmlsPQaT
+        2iGJoLrwERmojQ2IQrQgq+FkdN+TAlWJdh4NESBWUM5qTwd/rKUoBafJwEKEiBI0MZNZhqwj/PjkK92Y
+        fljBMk40jEeUIKuV86OlK7mROSnnmA00UARkB6mSgewQP1baUprVSrqPYsEJwTK9Z4tvHOXHpaZUrPoU
+        2aa8qEAcFCZN9fmyrGP8mNQWfZ6jj0wJHU1yQwSvuVSd1nhFH5noUwnd+InMOL1G6Q6hYNUD9HdOyWnO
+        7Hy3ymS/AQjy7kY+Y5qDAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="doctorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>345, 17</value>
   </metadata>
   <metadata name="tableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>506, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAYGAAAAEAIAColAAAFgAAACgAAABgAAAAwAAAAAEAIAAAAAAAgJQAAAAAAAAAAAAAAAAAAAAA

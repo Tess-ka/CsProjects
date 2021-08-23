@@ -31,7 +31,6 @@ namespace VetClinicApp
                 StringBuilder response = new StringBuilder();
                 NetworkStream stream = client.GetStream();
 
-                // Send the message to the connected TcpServer.
                 stream.Write(data, 0, data.Length);
 
                 do
@@ -41,24 +40,15 @@ namespace VetClinicApp
                 }
                 while (stream.DataAvailable); // пока данные есть в потоке
 
-                //Console.WriteLine(response.ToString());
-
                 // Закрываем потоки
                 stream.Close();
                 client.Close();
 
             }
-            //catch (SocketException e)
-            //{
-            //    Console.WriteLine("SocketException: {0}", e);
-            //}
             catch (Exception e)
             {
                 Console.WriteLine("Exception: {0}", e.Message);
             }
-
-            //Console.WriteLine("Запрос завершен...");
-            //Console.Read();
         }
         
     }

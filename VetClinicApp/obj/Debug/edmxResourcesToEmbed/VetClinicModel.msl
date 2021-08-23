@@ -2,90 +2,82 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DBVetClinicaModelStoreContainer" CdmEntityContainer="DBVetClinicaEntities">
     <EntitySetMapping Name="Doctors">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.Doctor">
-        <MappingFragment StoreEntitySet="Doctor">
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="Fathername" ColumnName="Fathername" />
-          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Doctor)">
+        <MappingFragment StoreEntitySet="Doctors">
           <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Fathername" ColumnName="Fathername" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Owners">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.Owner">
-        <MappingFragment StoreEntitySet="Owner">
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
-          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Owner)">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pets">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.Pet">
-        <MappingFragment StoreEntitySet="Pet">
-          <ScalarProperty Name="Сomment" ColumnName="Сomment" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-          <ScalarProperty Name="Colour" ColumnName="Colour" />
-          <ScalarProperty Name="BreedType" ColumnName="BreedType" />
-          <ScalarProperty Name="Species" ColumnName="Species" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Pet)">
+        <MappingFragment StoreEntitySet="Pets">
           <ScalarProperty Name="PetId" ColumnName="PetId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Species" ColumnName="Species" />
+          <ScalarProperty Name="BreedType" ColumnName="BreedType" />
+          <ScalarProperty Name="Colour" ColumnName="Colour" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="Сomment" ColumnName="Сomment" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Services">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.Service">
-        <MappingFragment StoreEntitySet="Service">
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Service)">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Сategory" ColumnName="Сategory" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
           <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TreatmentСase">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.TreatmentСase">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.TreatmentСase)">
         <MappingFragment StoreEntitySet="TreatmentСase">
-          <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
-          <ScalarProperty Name="Cause" ColumnName="Cause" />
-          <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
-          <ScalarProperty Name="Anamnesis" ColumnName="Anamnesis" />
-          <ScalarProperty Name="VisualInspection" ColumnName="VisualInspection" />
-          <ScalarProperty Name="PetID" ColumnName="PetID" />
-          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
-          <ScalarProperty Name="Number" ColumnName="Number" />
-          <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="TreatmentСaseId" ColumnName="TreatmentСaseId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="PetID" ColumnName="PetID" />
+          <ScalarProperty Name="VisualInspection" ColumnName="VisualInspection" />
+          <ScalarProperty Name="Anamnesis" ColumnName="Anamnesis" />
+          <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Images">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.Image">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Image)">
         <MappingFragment StoreEntitySet="Images">
-          <ScalarProperty Name="Path" ColumnName="Path" />
-          <ScalarProperty Name="Images" ColumnName="Images" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="DBVetClinicaModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

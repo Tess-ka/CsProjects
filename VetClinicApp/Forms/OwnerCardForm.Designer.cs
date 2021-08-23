@@ -37,8 +37,8 @@ namespace VetClinicApp
             System.Windows.Forms.Label birthdayLabel;
             System.Windows.Forms.Label telephoneLabel;
             System.Windows.Forms.Label e_mailLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerCardForm));
             System.Windows.Forms.Label addressLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerCardForm));
             this.ownerIDTextBox = new System.Windows.Forms.TextBox();
             this.ownerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBVetClinicaDataSet = new VetClinicApp.DBVetClinicaDataSet();
@@ -51,6 +51,7 @@ namespace VetClinicApp
             this.OkButton1 = new System.Windows.Forms.Button();
             this.CancelButton1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
             this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.petDataGridView = new System.Windows.Forms.DataGridView();
@@ -63,19 +64,17 @@ namespace VetClinicApp
             this.colourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ownerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.PathToFile = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.ownerTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.OwnerTableAdapter();
             this.tableAdapterManager = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager();
             this.petTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.PetTableAdapter();
-            this.addressTextBox = new System.Windows.Forms.TextBox();
             ownerIdLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
             firstNameLabel = new System.Windows.Forms.Label();
@@ -92,6 +91,7 @@ namespace VetClinicApp
             ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,6 +157,15 @@ namespace VetClinicApp
             e_mailLabel.Size = new System.Drawing.Size(38, 13);
             e_mailLabel.TabIndex = 13;
             e_mailLabel.Text = "E-mail:";
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.Location = new System.Drawing.Point(13, 198);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new System.Drawing.Size(41, 13);
+            addressLabel.TabIndex = 14;
+            addressLabel.Text = "Адрес:";
             // 
             // ownerIDTextBox
             // 
@@ -265,10 +274,18 @@ namespace VetClinicApp
             this.groupBox1.Controls.Add(birthdayLabel);
             this.groupBox1.Location = new System.Drawing.Point(8, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(344, 226);
+            this.groupBox1.Size = new System.Drawing.Size(338, 226);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Данные врача";
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ownerBindingSource, "Address", true));
+            this.addressTextBox.Location = new System.Drawing.Point(109, 195);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(223, 20);
+            this.addressTextBox.TabIndex = 15;
             // 
             // petBindingSource
             // 
@@ -374,21 +391,54 @@ namespace VetClinicApp
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.PathToFile);
             this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.toolStrip2);
             this.groupBox3.Location = new System.Drawing.Point(352, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(215, 226);
+            this.groupBox3.Size = new System.Drawing.Size(215, 260);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Фото";
+            // 
+            // PathToFile
+            // 
+            this.PathToFile.AutoSize = true;
+            this.PathToFile.ForeColor = System.Drawing.Color.Red;
+            this.PathToFile.Location = new System.Drawing.Point(44, 236);
+            this.PathToFile.Name = "PathToFile";
+            this.PathToFile.Size = new System.Drawing.Size(80, 13);
+            this.PathToFile.TabIndex = 23;
+            this.PathToFile.Text = "directory path...";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(6, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 199);
+            this.pictureBox1.Size = new System.Drawing.Size(203, 210);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton4});
+            this.toolStrip2.Location = new System.Drawing.Point(6, 229);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(35, 25);
+            this.toolStrip2.TabIndex = 24;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStrip1
             // 
@@ -433,42 +483,6 @@ namespace VetClinicApp
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(354, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(464, 233);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(518, 233);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 23);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(408, 237);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "label1";
-            // 
             // ownerTableAdapter
             // 
             this.ownerTableAdapter.ClearBeforeFill = true;
@@ -488,33 +502,12 @@ namespace VetClinicApp
             // 
             this.petTableAdapter.ClearBeforeFill = true;
             // 
-            // addressLabel
-            // 
-            addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(13, 198);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(41, 13);
-            addressLabel.TabIndex = 14;
-            addressLabel.Text = "Адрес:";
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ownerBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(109, 195);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(223, 20);
-            this.addressTextBox.TabIndex = 15;
-            // 
             // OwnerCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 520);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -532,7 +525,10 @@ namespace VetClinicApp
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.petDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -564,10 +560,7 @@ namespace VetClinicApp
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PathToFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn petIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
@@ -577,7 +570,9 @@ namespace VetClinicApp
         private System.Windows.Forms.DataGridViewTextBoxColumn colourDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ownerIDDataGridViewTextBoxColumn;
         protected internal System.Windows.Forms.DataGridView petDataGridView;
-        private System.Windows.Forms.PictureBox pictureBox1;
         protected internal System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        protected internal System.Windows.Forms.PictureBox pictureBox1;
     }
 }

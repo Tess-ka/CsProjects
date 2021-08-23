@@ -24,7 +24,7 @@ namespace VetClinicApp
         public string Lastname { get; set; }
         public string Firstname { get; set; }
         public string Fathername { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
+        public System.DateTime Birthday { get; set; }
         public string Qualification { get; set; }
         public string Phone { get; set; }
         public Nullable<int> Photo { get; set; }

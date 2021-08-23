@@ -5,16 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBVetClinicaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Doctor">
+        <EntityType Name="Doctors">
           <Key>
             <PropertyRef Name="DoctorId" />
           </Key>
-          <Property Name="DoctorId" Type="int" Nullable="false" />
-          <Property Name="Lastname" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Firstname" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Fathername" Type="nchar" MaxLength="50" />
-          <Property Name="Birthday" Type="date" />
-          <Property Name="Qualification" Type="nchar" MaxLength="50" />
+          <Property Name="DoctorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fathername" Type="nvarchar(max)" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Qualification" Type="nvarchar(max)" />
           <Property Name="Phone" Type="nchar" MaxLength="30" />
           <Property Name="Photo" Type="int" />
         </EntityType>
@@ -22,87 +22,82 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Images" Type="varchar(max)" Nullable="false" />
-          <Property Name="Path" Type="varchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="Path" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Owner">
+        <EntityType Name="Owners">
           <Key>
             <PropertyRef Name="OwnerId" />
           </Key>
-          <Property Name="OwnerId" Type="int" Nullable="false" />
-          <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="FatherName" Type="nchar" MaxLength="50" />
-          <Property Name="Birthday" Type="date" Nullable="false" />
-          <Property Name="Telephone" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="E-mail" Type="nchar" MaxLength="50" />
-          <Property Name="Address" Type="nchar" MaxLength="250" />
+          <Property Name="OwnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar(max)" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="E_mail" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Photo" Type="int" />
         </EntityType>
-        <EntityType Name="Pet">
+        <EntityType Name="Pets">
           <Key>
             <PropertyRef Name="PetId" />
           </Key>
-          <Property Name="PetId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="PetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Sex" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Birthday" Type="nchar" MaxLength="15" />
-          <Property Name="Species" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="BreedType" Type="nchar" MaxLength="10" />
-          <Property Name="Colour" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Birthday" Type="nvarchar(max)" />
+          <Property Name="Species" Type="nvarchar(max)" />
+          <Property Name="BreedType" Type="nvarchar(max)" />
+          <Property Name="Colour" Type="nvarchar(max)" />
           <Property Name="OwnerID" Type="int" />
           <Property Name="Сomment" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Service">
+        <EntityType Name="Services">
           <Key>
             <PropertyRef Name="ServiceId" />
           </Key>
-          <Property Name="ServiceId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="nchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
+          <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Price" Type="nvarchar(max)" />
+          <Property Name="Index" Type="int" />
+          <Property Name="Сategory" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="TreatmentСase">
           <Key>
             <PropertyRef Name="TreatmentСaseId" />
           </Key>
-          <Property Name="TreatmentСaseId" Type="int" Nullable="false" />
+          <Property Name="TreatmentСaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Data" Type="datetime" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
           <Property Name="DoctorID" Type="int" Nullable="false" />
           <Property Name="PetID" Type="int" Nullable="false" />
-          <Property Name="VisualInspection" Type="nvarchar" MaxLength="250" />
-          <Property Name="Anamnesis" Type="nvarchar" MaxLength="250" />
-          <Property Name="Diagnosis" Type="nchar" MaxLength="30" />
-          <Property Name="Cause" Type="nchar" MaxLength="50" />
-          <Property Name="Conclusion" Type="nvarchar" MaxLength="250" />
+          <Property Name="VisualInspection" Type="nvarchar(max)" />
+          <Property Name="Anamnesis" Type="nvarchar(max)" />
+          <Property Name="Diagnosis" Type="nvarchar(max)" />
+          <Property Name="Cause" Type="nvarchar(max)" />
+          <Property Name="Conclusion" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK_Pet_Owner">
-          <End Role="Owner" Type="Self.Owner" Multiplicity="0..1" />
-          <End Role="Pet" Type="Self.Pet" Multiplicity="*" />
+        <Association Name="FK_dbo_Pets_dbo_Owners_OwnerID">
+          <End Role="Owners" Type="Self.Owners" Multiplicity="0..1" />
+          <End Role="Pets" Type="Self.Pets" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Owner">
+            <Principal Role="Owners">
               <PropertyRef Name="OwnerId" />
             </Principal>
-            <Dependent Role="Pet">
+            <Dependent Role="Pets">
               <PropertyRef Name="OwnerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TreatmentСase_DoctorId">
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+        <Association Name="FK_dbo_TreatmentСase_dbo_Doctors_DoctorID">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TreatmentСase" Type="Self.TreatmentСase" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Doctor">
+            <Principal Role="Doctors">
               <PropertyRef Name="DoctorId" />
             </Principal>
             <Dependent Role="TreatmentСase">
@@ -110,11 +105,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TreatmentСase_PetId">
-          <End Role="Pet" Type="Self.Pet" Multiplicity="1" />
+        <Association Name="FK_dbo_TreatmentСase_dbo_Pets_PetID">
+          <End Role="Pets" Type="Self.Pets" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="TreatmentСase" Type="Self.TreatmentСase" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Pet">
+            <Principal Role="Pets">
               <PropertyRef Name="PetId" />
             </Principal>
             <Dependent Role="TreatmentСase">
@@ -123,23 +120,22 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBVetClinicaModelStoreContainer">
-          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pet" EntityType="Self.Pet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Owners" EntityType="Self.Owners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pets" EntityType="Self.Pets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TreatmentСase" EntityType="Self.TreatmentСase" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Pet_Owner" Association="Self.FK_Pet_Owner">
-            <End Role="Owner" EntitySet="Owner" />
-            <End Role="Pet" EntitySet="Pet" />
+          <AssociationSet Name="FK_dbo_Pets_dbo_Owners_OwnerID" Association="Self.FK_dbo_Pets_dbo_Owners_OwnerID">
+            <End Role="Owners" EntitySet="Owners" />
+            <End Role="Pets" EntitySet="Pets" />
           </AssociationSet>
-          <AssociationSet Name="FK_TreatmentСase_DoctorId" Association="Self.FK_TreatmentСase_DoctorId">
-            <End Role="Doctor" EntitySet="Doctor" />
+          <AssociationSet Name="FK_dbo_TreatmentСase_dbo_Doctors_DoctorID" Association="Self.FK_dbo_TreatmentСase_dbo_Doctors_DoctorID">
+            <End Role="Doctors" EntitySet="Doctors" />
             <End Role="TreatmentСase" EntitySet="TreatmentСase" />
           </AssociationSet>
-          <AssociationSet Name="FK_TreatmentСase_PetId" Association="Self.FK_TreatmentСase_PetId">
-            <End Role="Pet" EntitySet="Pet" />
+          <AssociationSet Name="FK_dbo_TreatmentСase_dbo_Pets_PetID" Association="Self.FK_dbo_TreatmentСase_dbo_Pets_PetID">
+            <End Role="Pets" EntitySet="Pets" />
             <End Role="TreatmentСase" EntitySet="TreatmentСase" />
           </AssociationSet>
         </EntityContainer>
@@ -166,18 +162,17 @@
             <End Role="TreatmentСase" EntitySet="TreatmentСase" />
           </AssociationSet>
           <EntitySet Name="Images" EntityType="DBVetClinicaModel.Image" />
-          <EntitySet Name="sysdiagrams" EntityType="DBVetClinicaModel.sysdiagram" />
         </EntityContainer>
         <EntityType Name="Doctor">
           <Key>
             <PropertyRef Name="DoctorId" />
           </Key>
           <Property Name="DoctorId" Type="Int32" Nullable="false" />
-          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Fathername" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Precision="0" />
-          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Lastname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Firstname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fathername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="Doctor" ToRole="TreatmentСase" />
           <Property Name="Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="Photo" Type="Int32" />
@@ -187,26 +182,27 @@
             <PropertyRef Name="OwnerId" />
           </Key>
           <Property Name="OwnerId" Type="Int32" Nullable="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Pets" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Owner" ToRole="Pet" />
-          <Property Name="Address" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Int32" />
         </EntityType>
         <EntityType Name="Pet">
           <Key>
             <PropertyRef Name="PetId" />
           </Key>
           <Property Name="PetId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Sex" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="Birthday" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
-          <Property Name="Species" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="BreedType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Colour" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Birthday" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Species" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BreedType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Colour" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OwnerID" Type="Int32" />
           <NavigationProperty Name="Owner" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Pet" ToRole="Owner" />
           <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="Pet" ToRole="TreatmentСase" />
@@ -217,8 +213,10 @@
             <PropertyRef Name="ServiceId" />
           </Key>
           <Property Name="ServiceId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Index" Type="Int32" />
+          <Property Name="Сategory" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="TreatmentСase">
           <Key>
@@ -229,11 +227,11 @@
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="DoctorID" Type="Int32" Nullable="false" />
           <Property Name="PetID" Type="Int32" Nullable="false" />
-          <Property Name="VisualInspection" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Anamnesis" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Diagnosis" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <Property Name="Cause" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Conclusion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="VisualInspection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Anamnesis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Diagnosis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cause" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Conclusion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Doctor" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="TreatmentСase" ToRole="Doctor" />
           <NavigationProperty Name="Pet" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="TreatmentСase" ToRole="Pet" />
         </EntityType>
@@ -278,116 +276,97 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Images" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBVetClinicaModelStoreContainer" CdmEntityContainer="DBVetClinicaEntities">
-          <EntitySetMapping Name="Doctors">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.Doctor">
-              <MappingFragment StoreEntitySet="Doctor">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Fathername" ColumnName="Fathername" />
-                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Owners">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.Owner">
-              <MappingFragment StoreEntitySet="Owner">
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBVetClinicaModelStoreContainer" CdmEntityContainer="DBVetClinicaEntities">
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Doctor)">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Fathername" ColumnName="Fathername" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Owners">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Owner)">
+        <MappingFragment StoreEntitySet="Owners">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pets">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.Pet">
-              <MappingFragment StoreEntitySet="Pet">
-                <ScalarProperty Name="Сomment" ColumnName="Сomment" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-                <ScalarProperty Name="Colour" ColumnName="Colour" />
-                <ScalarProperty Name="BreedType" ColumnName="BreedType" />
-                <ScalarProperty Name="Species" ColumnName="Species" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="PetId" ColumnName="PetId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Services">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.Service">
-              <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pets">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Pet)">
+        <MappingFragment StoreEntitySet="Pets">
+          <ScalarProperty Name="PetId" ColumnName="PetId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Species" ColumnName="Species" />
+          <ScalarProperty Name="BreedType" ColumnName="BreedType" />
+          <ScalarProperty Name="Colour" ColumnName="Colour" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="Сomment" ColumnName="Сomment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Service)">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Сategory" ColumnName="Сategory" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TreatmentСase">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.TreatmentСase">
-              <MappingFragment StoreEntitySet="TreatmentСase">
-                <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
-                <ScalarProperty Name="Cause" ColumnName="Cause" />
-                <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
-                <ScalarProperty Name="Anamnesis" ColumnName="Anamnesis" />
-                <ScalarProperty Name="VisualInspection" ColumnName="VisualInspection" />
-                <ScalarProperty Name="PetID" ColumnName="PetID" />
-                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Data" ColumnName="Data" />
-                <ScalarProperty Name="TreatmentСaseId" ColumnName="TreatmentСaseId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Images">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.Image">
-              <MappingFragment StoreEntitySet="Images">
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="Images" ColumnName="Images" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="DBVetClinicaModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreatmentСase">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.TreatmentСase)">
+        <MappingFragment StoreEntitySet="TreatmentСase">
+          <ScalarProperty Name="TreatmentСaseId" ColumnName="TreatmentСaseId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="PetID" ColumnName="PetID" />
+          <ScalarProperty Name="VisualInspection" ColumnName="VisualInspection" />
+          <ScalarProperty Name="Anamnesis" ColumnName="Anamnesis" />
+          <ScalarProperty Name="Diagnosis" ColumnName="Diagnosis" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Image)">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -401,7 +380,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

@@ -17,5 +17,7 @@ namespace VetClinicApp
         public int ServiceId { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public Nullable<int> Index { get; set; }
+        public string Сategory { get; set; }
     }
 }

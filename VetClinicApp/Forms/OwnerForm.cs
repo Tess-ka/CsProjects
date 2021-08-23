@@ -14,13 +14,16 @@ namespace VetClinicApp
     public partial class OwnerForm : Form
     {
         OwnerContext db;
-
+        ImagesContext ic;
         public OwnerForm()
         {
             InitializeComponent();
 
             db = new OwnerContext();
             db.Owners.Load();
+
+            ic = new ImagesContext();
+            ic.Images.Load();
 
 
             ownerDataGridView.DataSource = db.Owners.Local.ToBindingList();
@@ -71,6 +74,17 @@ namespace VetClinicApp
                 dc.telephoneTextBox.Text = owner.Telephone;
                 dc.e_mailTextBox.Text = owner.E_mail;
                 dc.addressTextBox.Text = owner.Address;
+
+                var d = from im in ic.Images
+                        where im.Id == owner.Photo
+                        select im.Path;
+                var imm = d.FirstOrDefault();
+
+                if (imm != null)
+                {
+                    dc.pictureBox1.Image = new Bitmap(imm);
+                    dc.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                }
 
                 DialogResult result = dc.ShowDialog(this);
 

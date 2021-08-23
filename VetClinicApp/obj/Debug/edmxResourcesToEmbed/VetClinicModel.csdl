@@ -19,18 +19,17 @@
       <End Role="TreatmentСase" EntitySet="TreatmentСase" />
     </AssociationSet>
     <EntitySet Name="Images" EntityType="DBVetClinicaModel.Image" />
-    <EntitySet Name="sysdiagrams" EntityType="DBVetClinicaModel.sysdiagram" />
   </EntityContainer>
   <EntityType Name="Doctor">
     <Key>
       <PropertyRef Name="DoctorId" />
     </Key>
     <Property Name="DoctorId" Type="Int32" Nullable="false" />
-    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Fathername" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Birthday" Type="DateTime" Precision="0" />
-    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fathername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="Qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="Doctor" ToRole="TreatmentСase" />
     <Property Name="Phone" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
     <Property Name="Photo" Type="Int32" />
@@ -40,26 +39,27 @@
       <PropertyRef Name="OwnerId" />
     </Key>
     <Property Name="OwnerId" Type="Int32" Nullable="false" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="E_mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Pets" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Owner" ToRole="Pet" />
-    <Property Name="Address" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="Int32" />
   </EntityType>
   <EntityType Name="Pet">
     <Key>
       <PropertyRef Name="PetId" />
     </Key>
     <Property Name="PetId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Sex" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="Birthday" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
-    <Property Name="Species" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-    <Property Name="BreedType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Colour" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Birthday" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Species" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="BreedType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Colour" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="OwnerID" Type="Int32" />
     <NavigationProperty Name="Owner" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Pet" ToRole="Owner" />
     <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="Pet" ToRole="TreatmentСase" />
@@ -70,8 +70,10 @@
       <PropertyRef Name="ServiceId" />
     </Key>
     <Property Name="ServiceId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Index" Type="Int32" />
+    <Property Name="Сategory" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="TreatmentСase">
     <Key>
@@ -82,11 +84,11 @@
     <Property Name="Number" Type="Int32" Nullable="false" />
     <Property Name="DoctorID" Type="Int32" Nullable="false" />
     <Property Name="PetID" Type="Int32" Nullable="false" />
-    <Property Name="VisualInspection" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Anamnesis" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Diagnosis" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-    <Property Name="Cause" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-    <Property Name="Conclusion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="VisualInspection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Anamnesis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Diagnosis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cause" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Conclusion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Doctor" Relationship="DBVetClinicaModel.FK_TreatmentСase_DoctorId" FromRole="TreatmentСase" ToRole="Doctor" />
     <NavigationProperty Name="Pet" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="TreatmentСase" ToRole="Pet" />
   </EntityType>
@@ -131,17 +133,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Images" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

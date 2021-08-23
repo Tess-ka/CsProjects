@@ -14,7 +14,7 @@ namespace VetClinicApp
     public partial class OwnerCardForm : Form
     {
         PetContext db;
-        //OwnerContext bd;
+        //private Owner Own;
 
         public OwnerCardForm(Owner owner)
         {
@@ -23,52 +23,8 @@ namespace VetClinicApp
             db = new PetContext();
             db.Pets.Load();
 
-            GridPet();
-
-            //bd = new OwnerContext();
-            //bd.Owners.Load();
-
-            petDataGridView.DataSource = db.Pets.Local.ToBindingList();
-
-            //using (PetContext pc = new PetContext())
-            //{
-            //    var pets = pc.Pets.Where(p => p.OwnerID.Value.ToString() == ownerIDTextBox.Text);
-            //    foreach (Pet p in pets)
-
-
-            //}
-        }
-
-        public void GridPet()
-        {
-
-            //PetContext pt = new PetContext();
-            //BindingSource b = new BindingSource();
-            //string OwnerID = ownerIDTextBox.Text;
-
-            //b.DataSource = from Pet in pt.Pets
-            //               where Pet.OwnerID == int.Parse(ownerIDTextBox.Text)
-            //               select Pet;
-            //petDataGridView.DataSource = b;
-
-
-            //var query = from DataGridViewRow row in petDataGridView.Rows
-            //            where row.Cells["petIdDataGridViewTextBoxColumn"].Value.ToString() == OwnerID
-            //            select row;
-            //DataGridViewRow result = query.FirstOrDefault();
-
-            using (PetContext pt = new PetContext())
-            {
-                var q = from p in pt.Pets
-                        where p.OwnerID == int.Parse(ownerIDTextBox.Text)
-                        select p;
-
-                //petDataGridView.DataSource = q;
-
-            }
-
-
-
+            petDataGridView.DataSource = db.Pets.Local.ToBindingList(); 
+            
         }
 
 
@@ -120,6 +76,7 @@ namespace VetClinicApp
                 dc.breedTypeTextBox.Text = pet.BreedType;
                 dc.colourTextBox.Text = pet.Colour;
 
+
                 DialogResult result = dc.ShowDialog(this);
 
                 if (result == DialogResult.Cancel)
@@ -164,6 +121,22 @@ namespace VetClinicApp
                 db.SaveChanges();
 
                 MessageBox.Show("Питомец удалён");
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            //Photo.PhotoAttachment(PathToFile.Text, pictureBox1);
+
+            int id = Photo.PhotoAttachment(PathToFile.Text, pictureBox1);
+
+            using (var context = new OwnerContext())
+            {
+                int owid = int.Parse(this.ownerIDTextBox.Text);
+
+                Owner owner = context.Owners.Single(own => own.OwnerId == owid);
+                owner.Photo = id;
+                context.SaveChanges();
             }
         }
     }

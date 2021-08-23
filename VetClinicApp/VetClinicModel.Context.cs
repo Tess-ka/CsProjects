@@ -31,6 +31,5 @@ namespace VetClinicApp
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<TreatmentСase> TreatmentСase { get; set; }
         public virtual DbSet<Image> Images { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
