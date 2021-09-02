@@ -220,7 +220,7 @@ namespace VetClinicApp
             // 
             // petIdTextBox1
             // 
-            this.petIdTextBox1.Cursor = System.Windows.Forms.Cursors.No;
+            this.petIdTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.petIdTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "PetId", true));
             this.petIdTextBox1.Location = new System.Drawing.Point(94, 18);
             this.petIdTextBox1.Name = "petIdTextBox1";
@@ -255,7 +255,7 @@ namespace VetClinicApp
             // 
             // speciesTextBox
             // 
-            this.speciesTextBox.Cursor = System.Windows.Forms.Cursors.No;
+            this.speciesTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.speciesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Species", true));
             this.speciesTextBox.Location = new System.Drawing.Point(94, 70);
             this.speciesTextBox.Name = "speciesTextBox";
@@ -342,7 +342,7 @@ namespace VetClinicApp
             this.FIOOwnerlabel.Size = new System.Drawing.Size(47, 15);
             this.FIOOwnerlabel.TabIndex = 1;
             this.FIOOwnerlabel.Text = "label2";
-            this.FIOOwnerlabel.Click += new System.EventHandler(this.FIOOwnerlabel_Click);
+            this.FIOOwnerlabel.DoubleClick += new System.EventHandler(this.FIOOwnerlabel_Click);
             // 
             // label1
             // 
@@ -449,7 +449,6 @@ namespace VetClinicApp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label FIOOwnerlabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox сommentTextBox;
         private System.Windows.Forms.Label label3;
@@ -458,5 +457,6 @@ namespace VetClinicApp
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         protected internal System.Windows.Forms.ComboBox sexComboBox;
         private System.Windows.Forms.Label label2;
+        protected internal System.Windows.Forms.Label FIOOwnerlabel;
     }
 }

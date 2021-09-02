@@ -102,7 +102,16 @@ namespace VetClinicApp
         //Открытие формы владельца
         private void FIOOwnerlabel_Click(object sender, EventArgs e)
         {
+            Form cdf = Application.OpenForms["OwnerCardForm"];
+            if (cdf == null)
+            { 
+                        int OwnerId = int.Parse(this.ownerIDLabel1.Text);
 
+            Owner owner = oc.Owners.Find(OwnerId);
+            OwnerCardForm dc = new OwnerCardForm(owner);
+
+            oc.SaveChanges();
+            }
         }
 
         //Добавление фото

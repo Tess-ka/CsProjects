@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.Collections.ObjectModel;
+using System.Reflection;
 
 namespace VetClinicApp
 {
@@ -17,7 +18,6 @@ namespace VetClinicApp
         PetContext db;
         ImagesContext db1;
         private Owner Own;
-
 
         public OwnerCardForm(Owner owner)
         {
@@ -56,19 +56,19 @@ namespace VetClinicApp
                     this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 }
 
-                //DataSet ds = new DataSet();
-                //ds.Tables.Add ();
-                petDataGridView.DataSource = owner.Pets.ToList();
-                //petDataGridView.DataSource = ds;
-                //petDataGridView.DataSource = db.Pets.Local.ToBindingList();
+                //petDataGridView.DataSource = owner.Pets.ToList();
+                BindingSource bSource = new BindingSource();
 
-                //var pp = from p in db.Pets
-                //         where p.OwnerID == owner.OwnerId
-                //         select p;
-                //DataTable dt = new DataTable();
+                var query = from p in db.Pets
+                         where p.OwnerID == owner.OwnerId
+                         select p;
 
+                DataTable dt = LINQResultToDataTable(query);
 
                 //petDataGridView.DataSource = dt;
+
+                bSource.DataSource = dt;
+                petDataGridView.DataSource = bSource;
 
                 DialogResult result = ShowDialog();
                 if (result == DialogResult.Cancel)
@@ -121,31 +121,36 @@ namespace VetClinicApp
             Pet pet = new Pet();
             PetCardForm dc = new PetCardForm(null);
             dc.Owner = this;
+            dc.ownerIDLabel1.Text = this.ownerIDTextBox.Text;
+            dc.FIOOwnerlabel.Text = $"{this.lastNameTextBox.Text} {this.firstNameTextBox.Text} {this.fatherNameTextBox.Text}";
+
             DialogResult result = dc.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
             db.Pets.Add(dc.GetPet);
             db.SaveChanges();
-            this.petDataGridView.Refresh();//не работает
-            //this.petDataGridView.Update();
         }
 
         //open pet from
         private void petDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (petDataGridView.SelectedRows.Count > 0)
+            Form pcf = Application.OpenForms["PetCardForm"];
+            if (pcf == null)
             {
-                int index = petDataGridView.SelectedRows[0].Index;
-                int PetId = 0;
-                bool converted = Int32.TryParse(petDataGridView[0, index].Value.ToString(), out PetId);
-                if (converted == false)
-                    return;
+                if (petDataGridView.SelectedRows.Count > 0)
+                {
+                    int index = petDataGridView.SelectedRows[0].Index;
+                    int PetId = 0;
+                    bool converted = Int32.TryParse(petDataGridView[0, index].Value.ToString(), out PetId);
+                    if (converted == false)
+                        return;
 
-                Pet pet = db.Pets.Find(PetId);
-                PetCardForm dc = new PetCardForm(pet);
+                    Pet pet = db.Pets.Find(PetId);
+                    PetCardForm dc = new PetCardForm(pet);
 
-                db.SaveChanges();
-                petDataGridView.Refresh();
+                    db.SaveChanges();
+                    petDataGridView.Refresh();
+                }
             }
         }
 
@@ -172,6 +177,46 @@ namespace VetClinicApp
         {
             //this.petsTableAdapter.Fill(this.dbconnectionDataSet.Pets);
 
+        }
+
+        public DataTable LINQResultToDataTable<T>(IEnumerable<T> Linqlist)
+        {
+            DataTable dt = new DataTable();
+            PropertyInfo[] columns = null;
+
+            if (Linqlist == null) return dt;
+
+            foreach (T Record in Linqlist)
+            {
+
+                if (columns == null)
+                {
+                    columns = ((Type)Record.GetType()).GetProperties();
+                    foreach (PropertyInfo GetProperty in columns)
+                    {
+                        Type colType = GetProperty.PropertyType;
+
+                        if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition()
+                               == typeof(Nullable<>)))
+                        {
+                            colType = colType.GetGenericArguments()[0];
+                        }
+
+                        dt.Columns.Add(new DataColumn(GetProperty.Name, colType));
+                    }
+                }
+
+                DataRow dr = dt.NewRow();
+
+                foreach (PropertyInfo pinfo in columns)
+                {
+                    dr[pinfo.Name] = pinfo.GetValue(Record, null) == null ? DBNull.Value : pinfo.GetValue
+                           (Record, null);
+                }
+
+                dt.Rows.Add(dr);
+            }
+            return dt;
         }
     }
 }
