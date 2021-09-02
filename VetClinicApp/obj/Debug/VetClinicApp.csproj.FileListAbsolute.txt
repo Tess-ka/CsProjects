@@ -42,3 +42,5 @@ C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetCl
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.TreatmentCaseForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.ServiceForm.resources
 C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\obj\Debug\VetClinicApp.ServiceCardForm.resources
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\Dbconnection.mdf
+C:\Users\Nastya.Nazarycheva\source\repos\CsProjects\VetClinicApp\bin\Debug\Dbconnection_log.ldf

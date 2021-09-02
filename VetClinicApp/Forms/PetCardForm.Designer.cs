@@ -50,21 +50,20 @@ namespace VetClinicApp
             this.breedTypeTextBox = new System.Windows.Forms.TextBox();
             this.birthdayTextBox = new System.Windows.Forms.TextBox();
             this.speciesTextBox = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ownerIDLabel1 = new System.Windows.Forms.Label();
             this.FIOOwnerlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.petTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.PetTableAdapter();
             this.tableAdapterManager = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager();
-            this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.ownerIDLabel1 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             petIdLabel1 = new System.Windows.Forms.Label();
             nameLabel1 = new System.Windows.Forms.Label();
             sexLabel = new System.Windows.Forms.Label();
@@ -76,19 +75,20 @@ namespace VetClinicApp
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // petIdLabel1
             // 
             petIdLabel1.AutoSize = true;
-            petIdLabel1.Location = new System.Drawing.Point(210, 21);
+            petIdLabel1.Location = new System.Drawing.Point(11, 21);
             petIdLabel1.Name = "petIdLabel1";
-            petIdLabel1.Size = new System.Drawing.Size(38, 13);
+            petIdLabel1.Size = new System.Drawing.Size(67, 13);
             petIdLabel1.TabIndex = 18;
-            petIdLabel1.Text = "Pet Id:";
+            petIdLabel1.Text = "ID питомца:";
             // 
             // nameLabel1
             // 
@@ -102,7 +102,7 @@ namespace VetClinicApp
             // sexLabel
             // 
             sexLabel.AutoSize = true;
-            sexLabel.Location = new System.Drawing.Point(11, 99);
+            sexLabel.Location = new System.Drawing.Point(218, 73);
             sexLabel.Name = "sexLabel";
             sexLabel.Size = new System.Drawing.Size(30, 13);
             sexLabel.TabIndex = 22;
@@ -111,7 +111,7 @@ namespace VetClinicApp
             // birthdayLabel
             // 
             birthdayLabel.AutoSize = true;
-            birthdayLabel.Location = new System.Drawing.Point(196, 99);
+            birthdayLabel.Location = new System.Drawing.Point(11, 99);
             birthdayLabel.Name = "birthdayLabel";
             birthdayLabel.Size = new System.Drawing.Size(52, 13);
             birthdayLabel.TabIndex = 24;
@@ -147,7 +147,7 @@ namespace VetClinicApp
             // сommentLabel
             // 
             сommentLabel.AutoSize = true;
-            сommentLabel.Location = new System.Drawing.Point(11, 201);
+            сommentLabel.Location = new System.Drawing.Point(11, 179);
             сommentLabel.Name = "сommentLabel";
             сommentLabel.Size = new System.Drawing.Size(80, 13);
             сommentLabel.TabIndex = 32;
@@ -171,9 +171,9 @@ namespace VetClinicApp
             this.groupBox1.Controls.Add(breedTypeLabel);
             this.groupBox1.Controls.Add(speciesLabel);
             this.groupBox1.Controls.Add(this.speciesTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(3, 58);
+            this.groupBox1.Location = new System.Drawing.Point(3, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(370, 279);
+            this.groupBox1.Size = new System.Drawing.Size(370, 246);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сведения о питомце";
@@ -181,10 +181,10 @@ namespace VetClinicApp
             // сommentTextBox
             // 
             this.сommentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Сomment", true));
-            this.сommentTextBox.Location = new System.Drawing.Point(97, 198);
+            this.сommentTextBox.Location = new System.Drawing.Point(94, 176);
             this.сommentTextBox.Multiline = true;
             this.сommentTextBox.Name = "сommentTextBox";
-            this.сommentTextBox.Size = new System.Drawing.Size(261, 71);
+            this.сommentTextBox.Size = new System.Drawing.Size(264, 55);
             this.сommentTextBox.TabIndex = 33;
             // 
             // petBindingSource
@@ -203,10 +203,11 @@ namespace VetClinicApp
             this.sexComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.petBindingSource, "Sex", true));
             this.sexComboBox.FormattingEnabled = true;
             this.sexComboBox.Items.AddRange(new object[] {
-            "Мужской, Женский"});
-            this.sexComboBox.Location = new System.Drawing.Point(94, 96);
+            "Мужской",
+            "Женский"});
+            this.sexComboBox.Location = new System.Drawing.Point(254, 70);
             this.sexComboBox.Name = "sexComboBox";
-            this.sexComboBox.Size = new System.Drawing.Size(85, 21);
+            this.sexComboBox.Size = new System.Drawing.Size(104, 21);
             this.sexComboBox.TabIndex = 32;
             // 
             // nameTextBox1
@@ -219,10 +220,12 @@ namespace VetClinicApp
             // 
             // petIdTextBox1
             // 
+            this.petIdTextBox1.Cursor = System.Windows.Forms.Cursors.No;
             this.petIdTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "PetId", true));
-            this.petIdTextBox1.Location = new System.Drawing.Point(254, 18);
+            this.petIdTextBox1.Location = new System.Drawing.Point(94, 18);
             this.petIdTextBox1.Name = "petIdTextBox1";
             this.petIdTextBox1.ReadOnly = true;
+            this.petIdTextBox1.ShortcutsEnabled = false;
             this.petIdTextBox1.Size = new System.Drawing.Size(104, 20);
             this.petIdTextBox1.TabIndex = 19;
             // 
@@ -245,33 +248,34 @@ namespace VetClinicApp
             // birthdayTextBox
             // 
             this.birthdayTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Birthday", true));
-            this.birthdayTextBox.Location = new System.Drawing.Point(254, 96);
+            this.birthdayTextBox.Location = new System.Drawing.Point(94, 97);
             this.birthdayTextBox.Name = "birthdayTextBox";
-            this.birthdayTextBox.Size = new System.Drawing.Size(104, 20);
+            this.birthdayTextBox.Size = new System.Drawing.Size(264, 20);
             this.birthdayTextBox.TabIndex = 25;
             // 
             // speciesTextBox
             // 
+            this.speciesTextBox.Cursor = System.Windows.Forms.Cursors.No;
             this.speciesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "Species", true));
             this.speciesTextBox.Location = new System.Drawing.Point(94, 70);
             this.speciesTextBox.Name = "speciesTextBox";
-            this.speciesTextBox.Size = new System.Drawing.Size(264, 20);
+            this.speciesTextBox.Size = new System.Drawing.Size(110, 20);
             this.speciesTextBox.TabIndex = 27;
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 190);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(192, 203);
+            this.pictureBox2.TabIndex = 18;
+            this.pictureBox2.TabStop = false;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Location = new System.Drawing.Point(379, 10);
+            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Location = new System.Drawing.Point(379, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(204, 217);
+            this.groupBox2.Size = new System.Drawing.Size(204, 228);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Фото";
@@ -279,7 +283,7 @@ namespace VetClinicApp
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(427, 343);
+            this.button1.Location = new System.Drawing.Point(421, 290);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 33;
@@ -289,7 +293,7 @@ namespace VetClinicApp
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(508, 343);
+            this.button2.Location = new System.Drawing.Point(502, 290);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 34;
@@ -298,42 +302,52 @@ namespace VetClinicApp
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.ownerIDLabel1);
-            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.FIOOwnerlabel);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(378, 68);
+            this.groupBox3.Size = new System.Drawing.Size(370, 62);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Владелец";
             // 
-            // button3
+            // label2
             // 
-            this.button3.Location = new System.Drawing.Point(254, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 33);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Карта владельца";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "№:";
+            // 
+            // ownerIDLabel1
+            // 
+            this.ownerIDLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "OwnerID", true));
+            this.ownerIDLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ownerIDLabel1.Location = new System.Drawing.Point(91, 40);
+            this.ownerIDLabel1.Name = "ownerIDLabel1";
+            this.ownerIDLabel1.Size = new System.Drawing.Size(81, 20);
+            this.ownerIDLabel1.TabIndex = 4;
+            this.ownerIDLabel1.Text = "label2";
             // 
             // FIOOwnerlabel
             // 
             this.FIOOwnerlabel.AutoSize = true;
-            this.FIOOwnerlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FIOOwnerlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FIOOwnerlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.FIOOwnerlabel.Location = new System.Drawing.Point(51, 24);
+            this.FIOOwnerlabel.Location = new System.Drawing.Point(91, 16);
             this.FIOOwnerlabel.Name = "FIOOwnerlabel";
-            this.FIOOwnerlabel.Size = new System.Drawing.Size(41, 13);
+            this.FIOOwnerlabel.Size = new System.Drawing.Size(47, 15);
             this.FIOOwnerlabel.TabIndex = 1;
             this.FIOOwnerlabel.Text = "label2";
+            this.FIOOwnerlabel.Click += new System.EventHandler(this.FIOOwnerlabel_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 24);
+            this.label1.Location = new System.Drawing.Point(11, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 0;
@@ -354,66 +368,51 @@ namespace VetClinicApp
             this.tableAdapterManager.TreatmentСaseTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(379, 233);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(460, 238);
+            this.label3.Location = new System.Drawing.Point(430, 241);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 37;
             this.label3.Text = "label3";
             // 
-            // button5
+            // toolStrip1
             // 
-            this.button5.Location = new System.Drawing.Point(379, 263);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 38;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(385, 234);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(35, 25);
+            this.toolStrip1.TabIndex = 38;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // button6
+            // toolStripButton1
             // 
-            this.button6.Location = new System.Drawing.Point(463, 263);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 39;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // ownerIDLabel1
-            // 
-            this.ownerIDLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.petBindingSource, "OwnerID", true));
-            this.ownerIDLabel1.Location = new System.Drawing.Point(11, 45);
-            this.ownerIDLabel1.Name = "ownerIDLabel1";
-            this.ownerIDLabel1.Size = new System.Drawing.Size(81, 20);
-            this.ownerIDLabel1.TabIndex = 4;
-            this.ownerIDLabel1.Text = "label2";
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 375);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.ClientSize = new System.Drawing.Size(594, 326);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(610, 365);
+            this.MinimumSize = new System.Drawing.Size(610, 365);
             this.Name = "PetCardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Амбулаторная карта питомца";
@@ -421,10 +420,12 @@ namespace VetClinicApp
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,7 +438,7 @@ namespace VetClinicApp
         private DBVetClinicaDataSetTableAdapters.PetTableAdapter petTableAdapter;
         private DBVetClinicaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
         protected internal System.Windows.Forms.TextBox petIdTextBox1;
         protected internal System.Windows.Forms.TextBox nameTextBox1;
         protected internal System.Windows.Forms.TextBox birthdayTextBox;
@@ -447,16 +448,15 @@ namespace VetClinicApp
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        protected internal System.Windows.Forms.ComboBox sexComboBox;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label FIOOwnerlabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox сommentTextBox;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         protected internal System.Windows.Forms.Label ownerIDLabel1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        protected internal System.Windows.Forms.ComboBox sexComboBox;
+        private System.Windows.Forms.Label label2;
     }
 }

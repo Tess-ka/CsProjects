@@ -78,6 +78,12 @@ namespace VetClinicApp
         { }
 
         public DbSet<Service> services { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<ServiceContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
 

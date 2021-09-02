@@ -110,7 +110,6 @@ namespace VetClinicApp
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(23, 22);
             this.UpdateButton.Text = "UpdateButton";
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // DeleteButton
             // 

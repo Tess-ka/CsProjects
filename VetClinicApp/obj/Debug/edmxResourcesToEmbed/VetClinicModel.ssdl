@@ -48,6 +48,7 @@
     <Property Name="Colour" Type="nvarchar(max)" />
     <Property Name="OwnerID" Type="int" />
     <Property Name="Сomment" Type="nvarchar(max)" />
+    <Property Name="Photo" Type="int" />
   </EntityType>
   <EntityType Name="Services">
     <Key>

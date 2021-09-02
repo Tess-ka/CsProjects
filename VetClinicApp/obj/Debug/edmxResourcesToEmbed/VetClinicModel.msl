@@ -33,6 +33,7 @@
     <EntitySetMapping Name="Pets">
       <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Pet)">
         <MappingFragment StoreEntitySet="Pets">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="PetId" ColumnName="PetId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />

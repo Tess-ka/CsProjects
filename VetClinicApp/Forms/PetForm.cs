@@ -25,7 +25,8 @@ namespace VetClinicApp
             petGridView.DataSource = db.Pets.Local.ToBindingList();
         }
 
-        public void PetUpdate()
+
+        private void petGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (petGridView.SelectedRows.Count > 0)
             {
@@ -36,44 +37,13 @@ namespace VetClinicApp
                     return;
 
                 Pet pet = db.Pets.Find(PetId);
-
-                PetCardForm dc = new PetCardForm();
-
-                dc.petIdTextBox1.Text = pet.PetId.ToString();
-                dc.nameTextBox1.Text = pet.Name;
-                dc.sexComboBox.Text = pet.Sex;
-                dc.birthdayTextBox.Text = pet.Birthday;
-                dc.speciesTextBox.Text = pet.Species;
-                dc.breedTypeTextBox.Text = pet.BreedType;
-                dc.colourTextBox.Text = pet.Colour;
-                dc.ownerIDLabel1.Text = pet.OwnerID.ToString();
-
-                DialogResult result = dc.ShowDialog(this);
-
-                if (result == DialogResult.Cancel)
-                    return;
-
-                pet.Name = dc.nameTextBox1.Text;
-                pet.Sex = dc.sexComboBox.Text;
-                pet.Birthday = dc.birthdayTextBox.Text;
-                pet.Species = dc.speciesTextBox.Text;
-                pet.BreedType = dc.breedTypeTextBox.Text;
-                pet.Colour = dc.colourTextBox.Text;
+                PetCardForm dc = new PetCardForm(pet);
 
                 db.SaveChanges();
                 petGridView.Refresh();
             }
         }
 
-        private void petGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            PetUpdate();
-        }
-
-        private void UpdateStripButton_Click_1(object sender, EventArgs e)
-        {
-            PetUpdate();
-        }
 
         private void DeleteStripButton_Click_1(object sender, EventArgs e)
         {

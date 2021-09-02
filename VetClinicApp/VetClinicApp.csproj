@@ -78,6 +78,11 @@
   <ItemGroup>
     <Compile Include="Class\Context.cs" />
     <Compile Include="Class\Photo.cs" />
+    <Compile Include="DbconnectionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbconnectionDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBVetClinicaDataSet.cs">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </Compile>
@@ -246,6 +251,17 @@
       <DependentUpon>SearchPetForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App1.Config" />
+    <None Include="DbconnectionDataSet.xsc">
+      <DependentUpon>DbconnectionDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DbconnectionDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DbconnectionDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DbconnectionDataSet.xss">
+      <DependentUpon>DbconnectionDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DBVetClinicaDataSet.xsc">
       <DependentUpon>DBVetClinicaDataSet.xsd</DependentUpon>
     </None>
@@ -279,6 +295,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dbconnection.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dbconnection_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Dbconnection.mdf</DependentUpon>
+    </Content>
     <Content Include="DBVetClinica.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

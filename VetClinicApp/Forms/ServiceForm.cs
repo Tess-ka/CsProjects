@@ -28,22 +28,19 @@ namespace VetClinicApp
         //добавить услугу
         private void InsertButton2_Click(object sender, EventArgs e)
         {
-            ServiceCardForm scf = new ServiceCardForm();
+            Service service = new Service();
+            ServiceCardForm scf = new ServiceCardForm(null);
             DialogResult result = scf.ShowDialog(this);
 
             if (result == DialogResult.Cancel)
                 return;
 
-            Service service = new Service();
-            service.Name = scf.nameTextBox.Text;
-            service.Price = scf.priceTextBox.Text;
-
-            sc.services.Add(service);
+            sc.services.Add(scf.GetServ);
             sc.SaveChanges();
         }
 
         //открыть/редактировать услугу
-        public void UpdateServiceForm()
+        private void serviceDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (serviceDataGridView.SelectedRows.Count > 0)
             {
@@ -54,31 +51,11 @@ namespace VetClinicApp
                     return;
 
                 Service service = sc.services.Find(ServiceId);
-                ServiceCardForm scf = new ServiceCardForm();
-
-                scf.nameTextBox.Text = service.Name;
-                scf.priceTextBox.Text = service.Price;
-
-                DialogResult result = scf.ShowDialog(this);
-
-                if (result == DialogResult.Cancel)
-                    return;
-
-                service.Name = scf.nameTextBox.Text;
-                service.Price = scf.priceTextBox.Text;
+                ServiceCardForm scf = new ServiceCardForm(service);
 
                 sc.SaveChanges();
                 serviceDataGridView.Refresh();
             }
-        }
-        private void UpdateButton2_Click(object sender, EventArgs e)
-        {
-            UpdateServiceForm();
-        }
-
-        private void serviceDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            UpdateServiceForm();
         }
 
         //Удалить услугу

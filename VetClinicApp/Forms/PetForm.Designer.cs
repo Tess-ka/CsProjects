@@ -73,7 +73,6 @@ namespace VetClinicApp
             this.UpdateStripButton.Size = new System.Drawing.Size(23, 22);
             this.UpdateStripButton.Text = "Изменить";
             this.UpdateStripButton.ToolTipText = "Изменить";
-            this.UpdateStripButton.Click += new System.EventHandler(this.UpdateStripButton_Click_1);
             // 
             // DeleteStripButton
             // 

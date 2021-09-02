@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace VetClinicApp
 {
     public partial class OwnerCardForm : Form
     {
         PetContext db;
-        //private Owner Own;
+        ImagesContext db1;
+        private Owner Own;
+
 
         public OwnerCardForm(Owner owner)
         {
@@ -23,38 +26,112 @@ namespace VetClinicApp
             db = new PetContext();
             db.Pets.Load();
 
-            petDataGridView.DataSource = db.Pets.Local.ToBindingList(); 
-            
+            db1 = new ImagesContext();
+            db1.Images.Load();
+
+            if (owner == null)
+            {
+                Own = new Owner();
+            }
+            else
+            {
+                Own = owner;
+                this.ownerIDTextBox.Text = owner.OwnerId.ToString();
+                this.lastNameTextBox.Text = owner.LastName;
+                this.firstNameTextBox.Text = owner.FirstName;
+                this.fatherNameTextBox.Text = owner.FatherName;
+                this.birthdayDateTimePicker.Value = owner.Birthday;
+                this.telephoneTextBox.Text = owner.Telephone;
+                this.e_mailTextBox.Text = owner.E_mail;
+                this.addressTextBox.Text = owner.Address;
+
+                var d = from im in db1.Images
+                        where im.Id == owner.Photo
+                        select im.Path;
+                var imm = d.FirstOrDefault();
+
+                if (imm != null)
+                {
+                    this.pictureBox1.Image = new Bitmap(imm);
+                    this.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+
+                //DataSet ds = new DataSet();
+                //ds.Tables.Add ();
+                petDataGridView.DataSource = owner.Pets.ToList();
+                //petDataGridView.DataSource = ds;
+                //petDataGridView.DataSource = db.Pets.Local.ToBindingList();
+
+                //var pp = from p in db.Pets
+                //         where p.OwnerID == owner.OwnerId
+                //         select p;
+                //DataTable dt = new DataTable();
+
+
+                //petDataGridView.DataSource = dt;
+
+                DialogResult result = ShowDialog();
+                if (result == DialogResult.Cancel)
+                    return;
+            }
         }
 
+        public Owner GetOwner => this.Own;
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (!e.Cancel)
+            {
+                Own.LastName = this.lastNameTextBox.Text;
+                Own.FirstName = this.firstNameTextBox.Text;
+                Own.FatherName = this.fatherNameTextBox.Text;
+                Own.Birthday = this.birthdayDateTimePicker.Value;
+                Own.Telephone = this.telephoneTextBox.Text;
+                Own.E_mail = this.e_mailTextBox.Text;
+                Own.Address = this.addressTextBox.Text;
+            }
+            base.OnClosing(e);
+        }
+
+        //Добавление фото
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            if (this.ownerIDTextBox.Text == "")
+            {
+                MessageBox.Show("Сохраните данные");
+            }
+            else
+            {
+                int id = Photo.PhotoAttachment(PathToFile.Text, pictureBox1);
+
+                using (var context = new OwnerContext())
+                {
+                    int owid = int.Parse(this.ownerIDTextBox.Text);
+
+                    Owner owner = context.Owners.Single(own => own.OwnerId == owid);
+                    owner.Photo = id;
+                    context.SaveChanges();
+                }
+            }
+        }
 
         //insert pet
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            //PetB pt = new PetB();
-            //pt.PetInsert();
-
-            PetCardForm dc = new PetCardForm();
-            DialogResult result = dc.ShowDialog();
-
+            Pet pet = new Pet();
+            PetCardForm dc = new PetCardForm(null);
+            dc.Owner = this;
+            DialogResult result = dc.ShowDialog(this);
             if (result == DialogResult.Cancel)
                 return;
-
-            Pet pet = new Pet();
-            pet.Name = dc.nameTextBox1.Text;
-            pet.Sex = dc.sexComboBox.Text;
-            pet.Birthday = dc.birthdayTextBox.Text;
-            pet.Species = dc.speciesTextBox.Text;
-            pet.BreedType = dc.breedTypeTextBox.Text;
-            pet.Colour = dc.colourTextBox.Text;
-            pet.OwnerID = int.Parse(ownerIDTextBox.Text);
-
-            db.Pets.Add(pet);
+            db.Pets.Add(dc.GetPet);
             db.SaveChanges();
+            this.petDataGridView.Refresh();//не работает
+            //this.petDataGridView.Update();
         }
 
-        //update pet
-        public void PetUpdate()
+        //open pet from
+        private void petDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (petDataGridView.SelectedRows.Count > 0)
             {
@@ -65,44 +142,11 @@ namespace VetClinicApp
                     return;
 
                 Pet pet = db.Pets.Find(PetId);
-
-                PetCardForm dc = new PetCardForm();
-
-                dc.petIdTextBox1.Text = pet.PetId.ToString();
-                dc.nameTextBox1.Text = pet.Name;
-                dc.sexComboBox.Text = pet.Sex;
-                dc.birthdayTextBox.Text = pet.Birthday;
-                dc.speciesTextBox.Text = pet.Species;
-                dc.breedTypeTextBox.Text = pet.BreedType;
-                dc.colourTextBox.Text = pet.Colour;
-
-
-                DialogResult result = dc.ShowDialog(this);
-
-                if (result == DialogResult.Cancel)
-                    return;
-
-                pet.Name = dc.nameTextBox1.Text;
-                pet.Sex = dc.sexComboBox.Text;
-                pet.Birthday = dc.birthdayTextBox.Text;
-                pet.Species = dc.speciesTextBox.Text;
-                pet.BreedType = dc.breedTypeTextBox.Text;
-                pet.Colour = dc.colourTextBox.Text;
+                PetCardForm dc = new PetCardForm(pet);
 
                 db.SaveChanges();
                 petDataGridView.Refresh();
             }
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            PetUpdate();
-        }
-
-        //open pet from
-        private void petDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            PetUpdate();
         }
 
         //delete pet
@@ -124,20 +168,10 @@ namespace VetClinicApp
             }
         }
 
-        private void toolStripButton4_Click(object sender, EventArgs e)
+        private void OwnerCardForm_Load(object sender, EventArgs e)
         {
-            //Photo.PhotoAttachment(PathToFile.Text, pictureBox1);
+            //this.petsTableAdapter.Fill(this.dbconnectionDataSet.Pets);
 
-            int id = Photo.PhotoAttachment(PathToFile.Text, pictureBox1);
-
-            using (var context = new OwnerContext())
-            {
-                int owid = int.Parse(this.ownerIDTextBox.Text);
-
-                Owner owner = context.Owners.Single(own => own.OwnerId == owid);
-                owner.Photo = id;
-                context.SaveChanges();
-            }
         }
     }
 }

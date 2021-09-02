@@ -32,27 +32,19 @@ namespace VetClinicApp
         //insert Owner
         private void InsertButton_Click(object sender, EventArgs e)
         {
-            ////OwnerCardForm dc = new OwnerCardForm();
-            //DialogResult result = dc.ShowDialog(this);
+            Owner owner = new Owner();
+            OwnerCardForm dc = new OwnerCardForm(null);
+            DialogResult result = dc.ShowDialog(this);
 
-            //if (result == DialogResult.Cancel)
-            //    return;
+            if (result == DialogResult.Cancel)
+                return;
 
-            //Owner owner = new Owner();
-            //owner.LastName = dc.lastNameTextBox.Text;
-            //owner.FirstName = dc.firstNameTextBox.Text;
-            //owner.FatherName = dc.fatherNameTextBox.Text;
-            //owner.Birthday = dc.birthdayDateTimePicker.Value;
-            //owner.Telephone = dc.telephoneTextBox.Text;
-            //owner.E_mail = dc.e_mailTextBox.Text;
-            //owner.Address = dc.addressTextBox.Text;
-
-            //db.Owners.Add(owner);
-            //db.SaveChanges();
+            db.Owners.Add(dc.GetOwner);
+            db.SaveChanges();
         }
 
-        //метод update Owner
-        public void UpdateOwnerForm()
+        //open Owner
+        private void ownerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (ownerDataGridView.SelectedRows.Count > 0)
             {
@@ -63,57 +55,11 @@ namespace VetClinicApp
                     return;
 
                 Owner owner = db.Owners.Find(OwnerId);
-
                 OwnerCardForm dc = new OwnerCardForm(owner);
-
-                dc.ownerIDTextBox.Text = owner.OwnerId.ToString();
-                dc.lastNameTextBox.Text = owner.LastName;
-                dc.firstNameTextBox.Text = owner.FirstName;
-                dc.fatherNameTextBox.Text = owner.FatherName;
-                dc.birthdayDateTimePicker.Value = owner.Birthday;
-                dc.telephoneTextBox.Text = owner.Telephone;
-                dc.e_mailTextBox.Text = owner.E_mail;
-                dc.addressTextBox.Text = owner.Address;
-
-                var d = from im in ic.Images
-                        where im.Id == owner.Photo
-                        select im.Path;
-                var imm = d.FirstOrDefault();
-
-                if (imm != null)
-                {
-                    dc.pictureBox1.Image = new Bitmap(imm);
-                    dc.pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                }
-
-                DialogResult result = dc.ShowDialog(this);
-
-                if (result == DialogResult.Cancel)
-                    return;
-
-                owner.LastName = dc.lastNameTextBox.Text;
-                owner.FirstName = dc.firstNameTextBox.Text;
-                owner.FatherName = dc.fatherNameTextBox.Text;
-                owner.Birthday = dc.birthdayDateTimePicker.Value;
-                owner.Telephone = dc.telephoneTextBox.Text;
-                owner.E_mail = dc.e_mailTextBox.Text;
-                owner.Address = dc.addressTextBox.Text;
 
                 db.SaveChanges();
                 ownerDataGridView.Refresh();
             }
-        }
-
-        //update Owner
-        private void UpdateButton_Click(object sender, EventArgs e)
-        {
-            UpdateOwnerForm();
-        }
-
-        //open in treeview and update Owner
-        private void ownerDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            UpdateOwnerForm();
         }
 
         //delete Owner

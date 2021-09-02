@@ -53,6 +53,7 @@
           <Property Name="Colour" Type="nvarchar(max)" />
           <Property Name="OwnerID" Type="int" />
           <Property Name="Сomment" Type="nvarchar(max)" />
+          <Property Name="Photo" Type="int" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -207,6 +208,7 @@
           <NavigationProperty Name="Owner" Relationship="DBVetClinicaModel.FK_Pet_Owner" FromRole="Pet" ToRole="Owner" />
           <NavigationProperty Name="TreatmentСase" Relationship="DBVetClinicaModel.FK_TreatmentСase_PetId" FromRole="Pet" ToRole="TreatmentСase" />
           <Property Name="Сomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Int32" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -317,7 +319,8 @@
     <EntitySetMapping Name="Pets">
       <EntityTypeMapping TypeName="IsTypeOf(DBVetClinicaModel.Pet)">
         <MappingFragment StoreEntitySet="Pets">
-          <ScalarProperty Name="PetId" ColumnName="PetId" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="PetId" ColumnName="PetId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Sex" ColumnName="Sex" />
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />

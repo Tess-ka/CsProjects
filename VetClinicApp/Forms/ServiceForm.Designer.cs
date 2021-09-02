@@ -33,27 +33,32 @@ namespace VetClinicApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.InsertButton2 = new System.Windows.Forms.ToolStripButton();
-            this.UpdateButton2 = new System.Windows.Forms.ToolStripButton();
             this.DeleteButton3 = new System.Windows.Forms.ToolStripButton();
-            this.serviceDataGridView = new System.Windows.Forms.DataGridView();
             this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBVetClinicaDataSet = new VetClinicApp.DBVetClinicaDataSet();
             this.serviceTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.ServiceTableAdapter();
             this.tableAdapterManager = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager();
+            this.dbconnectionDataSet = new VetClinicApp.DbconnectionDataSet();
+            this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.servicesTableAdapter = new VetClinicApp.DbconnectionDataSetTableAdapters.ServicesTableAdapter();
+            this.tableAdapterManager1 = new VetClinicApp.DbconnectionDataSetTableAdapters.TableAdapterManager();
+            this.serviceDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.serviceDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbconnectionDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.InsertButton2,
-            this.UpdateButton2,
             this.DeleteButton3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -71,16 +76,6 @@ namespace VetClinicApp
             this.InsertButton2.Text = "InsertStripButton2";
             this.InsertButton2.Click += new System.EventHandler(this.InsertButton2_Click);
             // 
-            // UpdateButton2
-            // 
-            this.UpdateButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UpdateButton2.Image = ((System.Drawing.Image)(resources.GetObject("UpdateButton2.Image")));
-            this.UpdateButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UpdateButton2.Name = "UpdateButton2";
-            this.UpdateButton2.Size = new System.Drawing.Size(23, 22);
-            this.UpdateButton2.Text = "UpdateStripButton2";
-            this.UpdateButton2.Click += new System.EventHandler(this.UpdateButton2_Click);
-            // 
             // DeleteButton3
             // 
             this.DeleteButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -90,28 +85,6 @@ namespace VetClinicApp
             this.DeleteButton3.Size = new System.Drawing.Size(23, 22);
             this.DeleteButton3.Text = "DeleteStripButton3";
             this.DeleteButton3.Click += new System.EventHandler(this.DeleteButton3_Click);
-            // 
-            // serviceDataGridView
-            // 
-            this.serviceDataGridView.AllowUserToAddRows = false;
-            this.serviceDataGridView.AllowUserToDeleteRows = false;
-            this.serviceDataGridView.AllowUserToResizeColumns = false;
-            this.serviceDataGridView.AutoGenerateColumns = false;
-            this.serviceDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.serviceDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.serviceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.serviceDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.serviceDataGridView.DataSource = this.serviceBindingSource;
-            this.serviceDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.serviceDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.serviceDataGridView.Name = "serviceDataGridView";
-            this.serviceDataGridView.ReadOnly = true;
-            this.serviceDataGridView.Size = new System.Drawing.Size(800, 425);
-            this.serviceDataGridView.TabIndex = 2;
-            this.serviceDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serviceDataGridView_CellDoubleClick);
             // 
             // serviceBindingSource
             // 
@@ -138,10 +111,57 @@ namespace VetClinicApp
             this.tableAdapterManager.TreatmentСaseTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // dbconnectionDataSet
+            // 
+            this.dbconnectionDataSet.DataSetName = "DbconnectionDataSet";
+            this.dbconnectionDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // servicesBindingSource
+            // 
+            this.servicesBindingSource.DataMember = "Services";
+            this.servicesBindingSource.DataSource = this.dbconnectionDataSet;
+            // 
+            // servicesTableAdapter
+            // 
+            this.servicesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.DoctorsTableAdapter = null;
+            this.tableAdapterManager1.ImagesTableAdapter = null;
+            this.tableAdapterManager1.OwnersTableAdapter = null;
+            this.tableAdapterManager1.PetsTableAdapter = null;
+            this.tableAdapterManager1.ServicesTableAdapter = this.servicesTableAdapter;
+            this.tableAdapterManager1.TreatmentСaseTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = VetClinicApp.DbconnectionDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // serviceDataGridView
+            // 
+            this.serviceDataGridView.AllowUserToAddRows = false;
+            this.serviceDataGridView.AllowUserToDeleteRows = false;
+            this.serviceDataGridView.AutoGenerateColumns = false;
+            this.serviceDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.serviceDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.serviceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.serviceDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn5});
+            this.serviceDataGridView.DataSource = this.servicesBindingSource;
+            this.serviceDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.serviceDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.serviceDataGridView.Name = "serviceDataGridView";
+            this.serviceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.serviceDataGridView.Size = new System.Drawing.Size(800, 436);
+            this.serviceDataGridView.TabIndex = 1;
+            this.serviceDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.serviceDataGridView_CellDoubleClick);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ServiceId";
-            this.dataGridViewTextBoxColumn1.FillWeight = 66.23791F;
+            this.dataGridViewTextBoxColumn1.FillWeight = 64.09592F;
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -149,7 +169,7 @@ namespace VetClinicApp
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.FillWeight = 188.0768F;
+            this.dataGridViewTextBoxColumn2.FillWeight = 203.0457F;
             this.dataGridViewTextBoxColumn2.HeaderText = "Наименование";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -157,25 +177,35 @@ namespace VetClinicApp
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn3.FillWeight = 45.68528F;
+            this.dataGridViewTextBoxColumn3.FillWeight = 42.50443F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Цена";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Сategory";
+            this.dataGridViewTextBoxColumn5.FillWeight = 90.35397F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Категория";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // ServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 461);
             this.Controls.Add(this.serviceDataGridView);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ServiceForm";
             this.Text = "Услуги";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.serviceDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbconnectionDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviceDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,15 +215,19 @@ namespace VetClinicApp
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton InsertButton2;
-        private System.Windows.Forms.ToolStripButton UpdateButton2;
         private System.Windows.Forms.ToolStripButton DeleteButton3;
         private DBVetClinicaDataSet dBVetClinicaDataSet;
         private System.Windows.Forms.BindingSource serviceBindingSource;
         private DBVetClinicaDataSetTableAdapters.ServiceTableAdapter serviceTableAdapter;
         private DBVetClinicaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private DbconnectionDataSet dbconnectionDataSet;
+        private System.Windows.Forms.BindingSource servicesBindingSource;
+        private DbconnectionDataSetTableAdapters.ServicesTableAdapter servicesTableAdapter;
+        private DbconnectionDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
         protected internal System.Windows.Forms.DataGridView serviceDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

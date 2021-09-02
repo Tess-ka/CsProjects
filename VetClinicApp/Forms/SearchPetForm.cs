@@ -205,27 +205,27 @@ namespace VetClinicApp
             {
                 Pet pet = db.Pets.Find(petIdTextBox.Text);
 
-                PetCardForm dc = new PetCardForm();
+                ////PetCardForm dc = new PetCardForm();
 
-                dc.petIdTextBox1.Text = pet.PetId.ToString();
-                dc.nameTextBox1.Text = pet.Name;
-                dc.sexComboBox.Text = pet.Sex;
-                dc.birthdayTextBox.Text = pet.Birthday;
-                dc.speciesTextBox.Text = pet.Species;
-                dc.breedTypeTextBox.Text = pet.BreedType;
-                dc.colourTextBox.Text = pet.Colour;
+                //dc.petIdTextBox1.Text = pet.PetId.ToString();
+                //dc.nameTextBox1.Text = pet.Name;
+                //dc.sexComboBox.Text = pet.Sex;
+                //dc.birthdayTextBox.Text = pet.Birthday;
+                //dc.speciesTextBox.Text = pet.Species;
+                //dc.breedTypeTextBox.Text = pet.BreedType;
+                //dc.colourTextBox.Text = pet.Colour;
 
-                DialogResult result = dc.ShowDialog(this);
+                //DialogResult result = dc.ShowDialog(this);
 
-                if (result == DialogResult.Cancel)
-                    return;
+                //if (result == DialogResult.Cancel)
+                //    return;
 
-                pet.Name = dc.nameTextBox1.Text;
-                pet.Sex = dc.sexComboBox.Text;
-                pet.Birthday = dc.birthdayTextBox.Text;
-                pet.Species = dc.speciesTextBox.Text;
-                pet.BreedType = dc.breedTypeTextBox.Text;
-                pet.Colour = dc.colourTextBox.Text;
+                //pet.Name = dc.nameTextBox1.Text;
+                //pet.Sex = dc.sexComboBox.Text;
+                //pet.Birthday = dc.birthdayTextBox.Text;
+                //pet.Species = dc.speciesTextBox.Text;
+                //pet.BreedType = dc.breedTypeTextBox.Text;
+                //pet.Colour = dc.colourTextBox.Text;
 
                 db.SaveChanges();
             }
@@ -240,22 +240,22 @@ namespace VetClinicApp
         {
             if (ownerIdTextBox.Text != null)
             {
-                PetCardForm dc = new PetCardForm();
-                DialogResult result = dc.ShowDialog();
+                //PetCardForm dc = new PetCardForm();
+                //DialogResult result = dc.ShowDialog();
 
-                if (result == DialogResult.Cancel)
-                    return;
+                //if (result == DialogResult.Cancel)
+                //    return;
 
-                Pet pet = new Pet();
-                pet.Name = dc.nameTextBox1.Text;
-                pet.Sex = dc.sexComboBox.Text;
-                pet.Birthday = dc.birthdayTextBox.Text;
-                pet.Species = dc.speciesTextBox.Text;
-                pet.BreedType = dc.breedTypeTextBox.Text;
-                pet.Colour = dc.colourTextBox.Text;
-                pet.OwnerID = int.Parse(ownerIdTextBox.Text);
+                //Pet pet = new Pet();
+                //pet.Name = dc.nameTextBox1.Text;
+                //pet.Sex = dc.sexComboBox.Text;
+                //pet.Birthday = dc.birthdayTextBox.Text;
+                //pet.Species = dc.speciesTextBox.Text;
+                //pet.BreedType = dc.breedTypeTextBox.Text;
+                //pet.Colour = dc.colourTextBox.Text;
+                //pet.OwnerID = int.Parse(ownerIdTextBox.Text);
 
-                db.Pets.Add(pet);
+                //db.Pets.Add(pet);
                 db.SaveChanges();
             }
         }

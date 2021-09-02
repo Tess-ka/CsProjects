@@ -12,24 +12,42 @@ namespace VetClinicApp
 {
     public partial class ServiceCardForm : Form
     {
-        public ServiceCardForm()
+        private Service Serv;
+
+        public ServiceCardForm(Service service)
         {
             InitializeComponent();
+
+            if (service == null)
+            {
+                Serv = new Service();
+            }
+            else
+            {
+                Serv = service;
+                this.nameTextBox.Text = service.Name;
+                this.priceTextBox.Text = service.Price;
+                this.сategoryTextBox.Text = service.Сategory;
+                this.indexTextBox.Text = service.Index.ToString();
+
+                DialogResult result = ShowDialog();
+                if (result == DialogResult.Cancel)
+                    return;
+            }
         }
 
-        private void serviceBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        public Service GetServ => this.Serv;
+
+        protected override void OnClosing(CancelEventArgs e)
         {
-            this.Validate();
-            this.serviceBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dBVetClinicaDataSet);
-
-        }
-
-        private void ServiceForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dBVetClinicaDataSet.Service' table. You can move, or remove it, as needed.
-            this.serviceTableAdapter.Fill(this.dBVetClinicaDataSet.Service);
-
+            if (!e.Cancel)
+            {
+                Serv.Name = this.nameTextBox.Text;
+                Serv.Price = this.priceTextBox.Text;
+                Serv.Сategory = this.сategoryTextBox.Text;
+                Serv.Index = int.Parse(this.indexTextBox.Text);
+            }
+            base.OnClosing(e);
         }
     }
 }

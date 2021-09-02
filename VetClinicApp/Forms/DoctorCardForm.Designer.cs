@@ -58,6 +58,7 @@ namespace VetClinicApp
             this.BrowseButton = new System.Windows.Forms.ToolStripButton();
             this.doctorTableAdapter = new VetClinicApp.DBVetClinicaDataSetTableAdapters.DoctorTableAdapter();
             this.tableAdapterManager = new VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager();
+            this.SaveButton = new System.Windows.Forms.Button();
             lastnameLabel = new System.Windows.Forms.Label();
             firstnameLabel = new System.Windows.Forms.Label();
             fathernameLabel = new System.Windows.Forms.Label();
@@ -323,11 +324,22 @@ namespace VetClinicApp
             this.tableAdapterManager.TreatmentСaseTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = VetClinicApp.DBVetClinicaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(15, 262);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 23;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // DoctorCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 294);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CanButton);
@@ -338,7 +350,6 @@ namespace VetClinicApp
             this.Name = "DoctorCardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Форма ветеринара";
-            this.Load += new System.EventHandler(this.DoctorCardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.doctorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBVetClinicaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DoctorPhoto)).EndInit();
@@ -374,5 +385,6 @@ namespace VetClinicApp
         protected internal System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton BrowseButton;
+        private System.Windows.Forms.Button SaveButton;
     }
 }
